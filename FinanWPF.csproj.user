@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\Crud\CreateView\form_CadastrarCategoria.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Crud\CreateView\form_CadastrarConta.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Crud\CreateView\form_CadastrarLancamento.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Crud\UpdateView\form_UpdateCategoria.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Crud\UpdateView\form_UpdateConta.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Crud\UpdateView\form_UpdateLancamento.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\form_main.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Crud\CreateView\form_CadastrarCategoria.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Crud\CreateView\form_CadastrarConta.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Crud\CreateView\form_CadastrarLancamento.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Crud\UpdateView\form_UpdateCategoria.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Crud\UpdateView\form_UpdateConta.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Crud\UpdateView\form_UpdateLancamento.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\form_main.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
