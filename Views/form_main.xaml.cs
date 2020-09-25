@@ -69,7 +69,6 @@ namespace FinanWPF.Views
 
             //MessageBox.Show("Listar Categoria", "Listar Categorias", MessageBoxButton.OK, MessageBoxImage.Information);
 
-            listView1.ItemsSource = CategoriaDAO.Read();
             dataGrid.ItemsSource = CategoriaDAO.Read();
 
         }
@@ -101,7 +100,6 @@ namespace FinanWPF.Views
 
             //MessageBox.Show("Listar contas", "Listar contas", MessageBoxButton.OK, MessageBoxImage.Information);
 
-            listView1.ItemsSource = ContaDAO.Read();
             dataGrid.ItemsSource = ContaDAO.Read();
 
         }
@@ -133,7 +131,6 @@ namespace FinanWPF.Views
 
             //MessageBox.Show("Listar Lancamentos", "Listar Lancamentos", MessageBoxButton.OK, MessageBoxImage.Information);
 
-            listView1.ItemsSource = LancamentoDAO.Read();
             dataGrid.ItemsSource = LancamentoDAO.Read();
 
         }
@@ -149,6 +146,35 @@ namespace FinanWPF.Views
         //FUNCIONALIDADE DE RESUMO
         private void MenuCriarResumo_Click(object sender, RoutedEventArgs e)
         {
+
+           
+
+        }
+
+        //Pesquisar lançamento
+        private void btn_PesquisarLancamento_Click(object sender, RoutedEventArgs e)
+        {
+
+            dataGrid.ItemsSource = LancamentoDAO.ReadByCategoryName(form_PesquisarLancamento.Text);
+            
+        }
+
+        //Pesquisar conta
+        private void btn_PesquisarConta_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //Pesquisar categoria
+        private void btn_PesquisarCategoria_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_PesquisarLancamentoValor_Click(object sender, RoutedEventArgs e)
+        {
+
+            dataGrid.ItemsSource = LancamentoDAO.ReadByValorInter(Convert.ToDouble(form_PesquisarLancamentoValor1.Text),Convert.ToDouble(form_PesquisarLancamentoValor2.Text));
 
         }
     }
