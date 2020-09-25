@@ -5,38 +5,97 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinanWPF.Views"
         mc:Ignorable="d"
-        Title="form_CadastrarLancamento" Height="450" Width="800">
-    <Grid>
+        Title="Cadastrar lancamento" Height="362" Width="316">
+    <Grid Margin="0,0,0,0" 
+          RenderTransformOrigin="0.5,0.5">
+
+        <!-- Title -->
+        <Label x:Name="label_TitleCadastrarLancamento" 
+               Content="CADASTRAR CONTA" 
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="10,10,0,0"
+               FontWeight="Bold"/>
+
+        <!-- Categoria Label -->
+        <Label x:Name="label_InputContaNome" 
+               Content="Nome da categoria:" 
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="10,110,0,0"
+               Width="Auto"
+               Height="25"
+               FontWeight="Bold"/>
 
         <!-- Categoria Input -->
         <ComboBox x:Name="drop_SelectCategoria" 
                   HorizontalAlignment="Left" 
-                  Margin="333,160,0,0" 
+                  Margin="145,110,0,0" 
                   VerticalAlignment="Top" 
-                  Width="120"/>
+                  Width="120"
+                  Height="25"
+                  BorderThickness="0,0,0,1"/>
 
-        <!-- Conta Input -->
+        <!-- Name Label -->
+        <Label x:Name="label_InputLancamentoConta" 
+               Content="Nome da conta:" 
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="10,55,0,0"
+               Width="Auto"
+               Height="25"
+               FontWeight="Bold"/>
+
+        <!-- Nome Input -->
         <ComboBox x:Name="drop_SelectConta" 
-                  HorizontalAlignment="Left" 
-                  Margin="333,233,0,0" 
+                  HorizontalAlignment="Left"
                   VerticalAlignment="Top" 
-                  Width="120"/>
+                  Margin="145,55,0,0" 
+                  Width="120"
+                  Height="25"
+                  BorderThickness="0,0,0,1"
+                  />
+
+        <!-- Name Label -->
+        <Label x:Name="label_InputLancamentoValue" 
+               Content="Valor do lançamento:" 
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="10,165,0,0"
+               Width="Auto"
+               Height="25"
+               FontWeight="Bold"/>
 
         <!-- Value Input -->
         <TextBox x:Name="input_LancamentoValue"
                  HorizontalAlignment="Left"
-                 Margin="333,269,0,0" 
-                 TextWrapping="Wrap"
                  VerticalAlignment="Top"
-                 Width="120"/>
+                 Margin="145,165,0,0" 
+                 Width="120"
+                 Height="25"
+                 Opacity="1" 
+                 BorderThickness="0,0,0,1"
+                 TextWrapping="Wrap"
+                 />
 
         <!-- Submit -->
         <Button x:Name="btn_CadastrarLancamento"
-                Content="Submit" 
-                HorizontalAlignment="Center"
-                Margin="0,300,0,0" 
-                VerticalAlignment="Top" Click="btn_CadastrarLancamento_Click"/>
+                Content="Cadastrar" 
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="10,220,0,0" 
+                Height="30"
+                Width="60" Click="btn_CadastrarLancamento_Click"
+                />
 
+        <!-- Cancel -->
+        <Button x:Name="btn_voltar"
+                Content=" Cancelar " 
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="100,220,0,0" 
+                Height="30"
+                Width="60" Click="btn_voltar_Click"/>
 
     </Grid>
 

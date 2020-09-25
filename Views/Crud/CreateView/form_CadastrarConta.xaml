@@ -5,33 +5,84 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinanWPF.Views"
         mc:Ignorable="d"
-        Title="form_CadastrarConta" Height="450" Width="800">
-    
-    <Grid>
+        Title="Cadastrar conta" 
+        Height="251" 
+        Width="269">
+
+    <Grid Margin="0,0,0,0" 
+          RenderTransformOrigin="0.5,0.5">
+
+        <!-- Title -->
+        <Label x:Name="label_TitleCadastrarConta" 
+               Content="CADASTRAR CONTA" 
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="10,10,0,0"
+               FontWeight="Bold"/>
+
+        <!-- Name Label -->
+        <Label x:Name="label_InputContaNome" 
+               Content="Nome:" 
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="10,55,0,0"
+               Width="Auto"
+               Height="25"
+               FontWeight="Bold"/>
 
         <!-- Name Input -->
         <TextBox x:Name="input_ContaNome"
                  HorizontalAlignment="Left"
-                 Margin="60,105,0,0" 
-                 TextWrapping="Wrap"
                  VerticalAlignment="Top"
-                 Width="120"/>
+                 Margin="100,55,0,0" 
+                 Width="120"
+                 Height="25"
+                 TextWrapping="Wrap"
+                 Opacity="1" 
+                 BorderThickness="0,0,0,1"/>
+
+        <!-- CPF Label -->
+        <Label x:Name="label_InputContaCPF" 
+               Content="CPF da conta:" 
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="10,110,0,0"
+               Width="Auto"
+               Height="25"
+               FontWeight="Bold"/>
 
         <!-- CPF Input -->
         <TextBox x:Name="input_ContaCPF"
                  HorizontalAlignment="Left"
-                 Margin="60,185,0,0" 
-                 TextWrapping="Wrap"
                  VerticalAlignment="Top"
-                 Width="120"/>
+                 Margin="100,110,0,0" 
+                 Width="120"
+                 Height="25"
+                 TextWrapping="Wrap"
+                 Opacity="1" 
+                 BorderThickness="0,0,0,1"/>
+
+
 
         <!-- Submit -->
         <Button x:Name="btn_CadastrarConta"
-                Content="Submit" 
+                Content="Cadastrar" 
                 HorizontalAlignment="Left"
-                Margin="60,264,0,0" 
-                VerticalAlignment="Top" Click="btn_CadastrarConta_Click"/>
+                VerticalAlignment="Top"
+                Margin="10,156,0,0"                
+                Height="30"
+                Width="60"
+                Click="btn_CadastrarConta_Click"/>
+
+        <!-- Voltar -->
+        <Button x:Name="btn_voltar"
+                Content=" Cancelar " 
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="100,156,0,0" 
+                Height="30"
+                Width="60" Click="btn_voltar_Click"/>
 
     </Grid>
-    
+
 </Window>

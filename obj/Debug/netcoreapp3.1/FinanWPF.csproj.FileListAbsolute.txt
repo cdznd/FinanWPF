@@ -63,3 +63,9 @@ C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\Views\Crud\Cre
 C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\Views\Crud\CreateView\form_CadastrarCategoria.baml
 C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\Views\Crud\CreateView\form_CadastrarConta.baml
 C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\Views\Crud\CreateView\form_CadastrarLancamento.baml
+C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\Views\Crud\UpdateView\form_UpdateCategoria.g.cs
+C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\Views\Crud\UpdateView\form_UpdateConta.g.cs
+C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\Views\Crud\UpdateView\form_UpdateLancamento.g.cs
+C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\Views\Crud\UpdateView\form_UpdateCategoria.baml
+C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\Views\Crud\UpdateView\form_UpdateConta.baml
+C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\Views\Crud\UpdateView\form_UpdateLancamento.baml

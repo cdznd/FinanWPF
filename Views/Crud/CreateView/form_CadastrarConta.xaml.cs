@@ -25,6 +25,17 @@ namespace FinanWPF.Views
             InitializeComponent();
         }
 
+        public void clearForm()
+        {
+
+            input_ContaNome.Clear();
+
+            input_ContaCPF.Clear();
+
+            input_ContaNome.Focus();
+
+        }
+
         private void btn_CadastrarConta_Click(object sender, RoutedEventArgs e)
         {
 
@@ -41,6 +52,13 @@ namespace FinanWPF.Views
             ContaDAO.Create(c);
 
             MessageBox.Show("Conta cadastrada com sucesso", "Cadastrar conta", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+
+        }
+
+        private void btn_voltar_Click(object sender, RoutedEventArgs e)
+        {
+
+            Close();
 
         }
     }

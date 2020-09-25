@@ -35,7 +35,7 @@ namespace FinanWPF.Controllers
         public static List<Lancamento> Read() => _context.Lancamento.Include(Lancamento => Lancamento.Categoria).Include(Lancamento => Lancamento.Conta).ToList();
 
 
-        public static Lancamento ReadById(int id) => _context.Lancamento.Find(id);
+        public static Lancamento ReadById(int id) => _context.Lancamento.Include(Lancamento => Lancamento.Categoria).Include(Lancamento => Lancamento.Conta).FirstOrDefault(x => x.Id == id);
         //ByName
         //public static Lancamento ReadByName(string nome) => _context.Lancamento.FirstOrDefault(x => x.Nome == nome);
         //ByCpf

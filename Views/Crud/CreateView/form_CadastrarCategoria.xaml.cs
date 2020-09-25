@@ -22,7 +22,19 @@ namespace FinanWPF.Views
     {
         public form_CadastrarCategoria()
         {
+
             InitializeComponent();
+            clearForm();
+
+        }
+
+        public void clearForm()
+        {
+
+            input_CategoriaNome.Clear();
+
+            input_CategoriaNome.Focus();
+
         }
 
         private void btn_CadastrarCategoria_Click(object sender, RoutedEventArgs e)
@@ -35,6 +47,15 @@ namespace FinanWPF.Views
             CategoriaDAO.Create(c);
 
             MessageBox.Show("Categoria cadastrada com sucesso", "Cadastrar Categoria", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+
+            clearForm();
+
+        }
+
+        private void btn_voltar_Click(object sender, RoutedEventArgs e)
+        {
+
+            Close();
 
         }
     }

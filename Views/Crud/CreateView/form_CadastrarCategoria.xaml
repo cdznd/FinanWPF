@@ -5,24 +5,58 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinanWPF.Views"
         mc:Ignorable="d"
-        Title="form_CadastrarCategoria" Height="450" Width="800">
-    <Grid>
-        
+        Title="Cadastrar Categoria" Height="205" Width="399" WindowStyle="SingleBorderWindow">
+    <Grid Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+
+        <!-- Categoria -->
+        <Label x:Name="label_TitleCadastrarCategoria" 
+               Content="CADASTRAR CATEGORIA" 
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="10,10,0,0"
+               FontWeight="Bold"/>
+
+
+        <Label x:Name="label_InputCategoriaNome" 
+               Content="Nome da categoria:" 
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="10,55,0,0"
+               Width="Auto"
+               Height="25"
+               FontWeight="Bold"/>
+
         <!-- Name Input -->
         <TextBox x:Name="input_CategoriaNome"
                  HorizontalAlignment="Left"
-                 Margin="60,105,0,0" 
-                 TextWrapping="Wrap"
                  VerticalAlignment="Top"
-                 Width="120"/>
-        
+                 Margin="140,55,0,0" 
+                 Height="25"
+                 Width="209" 
+                 TextWrapping="Wrap"
+                 Opacity="1" 
+                 BorderThickness="0,0,0,1"/>
+
+
         <!-- Submit -->
         <Button x:Name="btn_CadastrarCategoria"
-                Content="Submit" 
+                Content=" Cadastrar " 
                 HorizontalAlignment="Left"
-                Margin="60,264,0,0" 
-                VerticalAlignment="Top" Click="btn_CadastrarCategoria_Click"/>
+                VerticalAlignment="Top"
+                Margin="10,120,0,0" 
+                Height="30"
+                Width="60"
+                Click="btn_CadastrarCategoria_Click"/>
+
+        <!-- Cancel -->
+        <Button x:Name="btn_voltar"
+                Content=" Cancelar " 
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="100,120,0,0" 
+                Height="30"
+                Width="60" Click="btn_voltar_Click"/>
 
     </Grid>
-        
+
 </Window>

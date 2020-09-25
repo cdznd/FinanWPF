@@ -70,6 +70,7 @@ namespace FinanWPF.Views
             //MessageBox.Show("Listar Categoria", "Listar Categorias", MessageBoxButton.OK, MessageBoxImage.Information);
 
             listView1.ItemsSource = CategoriaDAO.Read();
+            dataGrid.ItemsSource = CategoriaDAO.Read();
 
         }
         //Editar/Excluir categoria
@@ -101,6 +102,7 @@ namespace FinanWPF.Views
             //MessageBox.Show("Listar contas", "Listar contas", MessageBoxButton.OK, MessageBoxImage.Information);
 
             listView1.ItemsSource = ContaDAO.Read();
+            dataGrid.ItemsSource = ContaDAO.Read();
 
         }
         //Editar/excluir Contas
@@ -132,6 +134,7 @@ namespace FinanWPF.Views
             //MessageBox.Show("Listar Lancamentos", "Listar Lancamentos", MessageBoxButton.OK, MessageBoxImage.Information);
 
             listView1.ItemsSource = LancamentoDAO.Read();
+            dataGrid.ItemsSource = LancamentoDAO.Read();
 
         }
         //Editar/excluir lançamento

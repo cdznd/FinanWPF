@@ -53,7 +53,6 @@ namespace FinanWPF.Views
             string y = drop_SelectConta.SelectedItem.ToString();
             y = y.Substring(0,2);
 
-            MessageBox.Show("Categoria = " + x + " Conta = " + y + ".", "Listar Categorias", MessageBoxButton.OK, MessageBoxImage.Information);
             c.ContaId = Convert.ToInt32(y);
             c.CategoriaId = Convert.ToInt32(x);
 
@@ -61,6 +60,16 @@ namespace FinanWPF.Views
 
             LancamentoDAO.Create(c);
 
+            MessageBox.Show("Lançamento no valor de " + c.Valor + " na Categoria " + LancamentoDAO.ReadById(c.Id).Categoria.Nome + " para a Conta " + LancamentoDAO.ReadById(c.Id).Conta.Nome + " Cadastrado com sucesso!!", "Listar Categorias", MessageBoxButton.OK, MessageBoxImage.Information);
+
         }
+
+        private void btn_voltar_Click(object sender, RoutedEventArgs e)
+        {
+
+            Close();
+
+        }
+
     }
 }
