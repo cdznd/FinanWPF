@@ -34,7 +34,7 @@ namespace FinanWPF.Controllers
 
         //Expressão lambda
         //Percorre toda a tabela de Categoria e compara o nome com o parametro fornecido.
-        public static Categoria ReadByName(string nome) => _context.Categoria.FirstOrDefault(x => x.Nome == nome);
+        public static List<Categoria> ReadByName(string nome) => _context.Categoria.Where(x => x.Nome == nome).ToList();
 
         //UPDATE
         public static void Update(Categoria p)

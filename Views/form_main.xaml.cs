@@ -151,31 +151,45 @@ namespace FinanWPF.Views
 
         }
 
-        //Pesquisar lançamento
-        private void btn_PesquisarLancamento_Click(object sender, RoutedEventArgs e)
+        //Pesquisar categoria
+        private void btn_PesquisarCategoria_Click(object sender, RoutedEventArgs e)
         {
 
-            dataGrid.ItemsSource = LancamentoDAO.ReadByCategoryName(form_PesquisarLancamento.Text);
-            
+            dataGrid.ItemsSource = CategoriaDAO.ReadByName(form_PesquisarCategoria.Text);
+
         }
 
         //Pesquisar conta
         private void btn_PesquisarConta_Click(object sender, RoutedEventArgs e)
         {
+            //Pesquisa pelo nome
+            dataGrid.ItemsSource = ContaDAO.ReadByName(form_PesquisarConta.Text);
+            
+            //Pesquisa pelo cpf
+            //dataGrid.ItemsSource = ContaDAO.ReadByCpf(form_PesquisarConta.Text);
 
         }
 
-        //Pesquisar categoria
-        private void btn_PesquisarCategoria_Click(object sender, RoutedEventArgs e)
+        //Pesquisar lançamento
+        private void btn_PesquisarLancamento_Click(object sender, RoutedEventArgs e)
         {
 
-        }
+            dataGrid.ItemsSource = LancamentoDAO.ReadByCategoryName(form_PesquisarLancamento.Text);
 
+            //Pesquisar pelo nome da conta
+            dataGrid.ItemsSource = LancamentoDAO.ReadByContaName(form_PesquisarLancamento.Text);
+
+            //Pesquisar pelo cpf da conta
+            //dataGrid.ItemsSource = LancamentoDAO.ReadByContaCPF(form_PesquisarLancamento.Text);
+
+        }
+        //Pesquisa lançamento pelo valor
         private void btn_PesquisarLancamentoValor_Click(object sender, RoutedEventArgs e)
         {
 
-            dataGrid.ItemsSource = LancamentoDAO.ReadByValorInter(Convert.ToDouble(form_PesquisarLancamentoValor1.Text),Convert.ToDouble(form_PesquisarLancamentoValor2.Text));
+            dataGrid.ItemsSource = LancamentoDAO.ReadByValorInter(Convert.ToDouble(form_PesquisarLancamentoValor1.Text), Convert.ToDouble(form_PesquisarLancamentoValor2.Text));
 
         }
+
     }
 }

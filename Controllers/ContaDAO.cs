@@ -33,9 +33,9 @@ namespace FinanWPF.Controllers
         //ById
         public static Conta ReadById(int id) => _context.Conta.Find(id);
         //ByName
-        public static Conta ReadByName(string nome) => _context.Conta.FirstOrDefault(x => x.Nome == nome);
+        public static List<Conta> ReadByName(string nome) => _context.Conta.Where(x => x.Nome == nome).ToList();
         //ByCpf
-        public static Conta ReadByCpf(string cpf) => _context.Conta.FirstOrDefault(x => x.Cpf == cpf);
+        public static List<Conta> ReadByCpf(string cpf) => _context.Conta.Where(x => x.Cpf == cpf).ToList();
 
         //UPDATE
         public static void Update(Conta p)
