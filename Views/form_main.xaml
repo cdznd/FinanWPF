@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="FinanC - Home" Height="658" WindowStyle="ThreeDBorderWindow" WindowState="Maximized" WindowStartupLocation="CenterScreen" Width="916" Closing="Window_Closing">
 
-    <Grid>
+    <Grid Margin="0,0,329,253">
 
         <Menu Height="30"
-              Width="auto"
+              Width="1000"
               VerticalAlignment="Top"
               >
 
@@ -113,22 +113,7 @@
                       Margin="20,5,20,0" Click="MenuCriarResumo_Click"/>
 
         </Menu>
-        <DataGrid x:Name="dataGrid" Margin="58,203,58,154"/>
-
-        <TextBox x:Name="form_PesquisarLancamento" 
-                 HorizontalAlignment="Left" 
-                 VerticalAlignment="Top"
-                 Margin="60,112,0,0" 
-                 TextWrapping="Wrap" 
-                 Width="130"
-                 Height="25"/>
-        <Button x:Name="btn_PesquisarLancamento"
-                Content="Filtrar lançamento"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Margin="60,147,0,0"
-                Height="25" 
-                Width="130" Click="btn_PesquisarLancamento_Click"/>
+        <DataGrid x:Name="dataGrid" Margin="58,203,576,321"/>
 
         <Label x:Name="label_Valor1" 
                Content="Lançamentos com valor maior que " 
@@ -166,39 +151,16 @@
                 VerticalAlignment="Top"
                 Margin="430,71,0,0"
                 Height="25" 
-                Width="120" Click="btn_PesquisarLancamentoValor_Click"/>
+                Width="120"/>
 
         <TextBox x:Name="form_PesquisarConta" 
                  HorizontalAlignment="Left" 
                  VerticalAlignment="Top"
-                 Margin="240,112,0,0" 
+                 Margin="647,58,0,0" 
                  TextWrapping="Wrap" 
                  Width="130"
-                 Height="25"/>
+                 Height="26"/>
 
-        <Button x:Name="btn_PesquisarConta"
-                Content="Pesquisar Conta"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Margin="240,147,0,0"
-                Height="25" 
-                Width="130" Click="btn_PesquisarConta_Click"/>
-
-        <TextBox x:Name="form_PesquisarCategoria" 
-                 HorizontalAlignment="Left" 
-                 VerticalAlignment="Top"
-                 Margin="420,112,0,0" 
-                 TextWrapping="Wrap" 
-                 Width="130"
-                 Height="25"/>
-
-        <Button x:Name="btn_PesquisarCategoria"
-                Content="Pesquisar Categoria"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Margin="420,147,0,0"
-                Height="25" 
-                Width="130" Click="btn_PesquisarCategoria_Click"/>
 
     </Grid>
 

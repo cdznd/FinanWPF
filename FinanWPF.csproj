@@ -30,7 +30,6 @@
 
   <ItemGroup>
     <Folder Include="Views\Crud\DeleteView\" />
-    <Folder Include="Views\Crud\ReadView\" />
   </ItemGroup>
 
 </Project>

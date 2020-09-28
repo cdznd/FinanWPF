@@ -16,6 +16,12 @@
     <Compile Update="Views\Crud\CreateView\form_CadastrarLancamento.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Crud\ReadView\view_Categoria.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Crud\ReadView\view_Conta.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Crud\UpdateView\form_UpdateCategoria.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -26,6 +32,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\form_main.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Resume.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -39,6 +48,12 @@
     <Page Update="Views\Crud\CreateView\form_CadastrarLancamento.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\Crud\ReadView\view_Categoria.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Crud\ReadView\view_Conta.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Crud\UpdateView\form_UpdateCategoria.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -49,6 +64,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\form_main.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Resume.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

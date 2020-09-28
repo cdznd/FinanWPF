@@ -19,7 +19,8 @@ namespace FinanWPF.Views
     /// Interaction logic for form_CadastrarLancamento.xaml
     /// </summary>
     public partial class form_CadastrarLancamento : Window
-    {
+    {   
+
         public form_CadastrarLancamento()
         {
             InitializeComponent();
@@ -42,6 +43,13 @@ namespace FinanWPF.Views
 
         }
 
+        public void clearForm()
+        {
+
+            input_LancamentoValue.Clear();
+
+        }
+
         private void btn_CadastrarLancamento_Click(object sender, RoutedEventArgs e)
         {
             //Gambiarra Só é possivel escolher conta e categoria com id de 2 digitos, ou seja no maximo 99 contas / categorias.
@@ -61,6 +69,8 @@ namespace FinanWPF.Views
             LancamentoDAO.Create(c);
 
             MessageBox.Show("Lançamento no valor de " + c.Valor + " na Categoria " + LancamentoDAO.ReadById(c.Id).Categoria.Nome + " para a Conta " + LancamentoDAO.ReadById(c.Id).Conta.Nome + " Cadastrado com sucesso!!", "Listar Categorias", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            clearForm();
 
         }
 

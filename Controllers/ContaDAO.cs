@@ -36,6 +36,8 @@ namespace FinanWPF.Controllers
         public static List<Conta> ReadByName(string nome) => _context.Conta.Where(x => x.Nome == nome).ToList();
         //ByCpf
         public static List<Conta> ReadByCpf(string cpf) => _context.Conta.Where(x => x.Cpf == cpf).ToList();
+        //Read lançamentos de uma conta
+        public static List<Lancamento> ReadLancamentos(int id) => _context.Conta.Find(id).Lancamentos.ToList();
 
         //UPDATE
         public static void Update(Conta p)

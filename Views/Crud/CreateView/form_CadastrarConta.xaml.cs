@@ -53,6 +53,8 @@ namespace FinanWPF.Views
 
             MessageBox.Show("Conta cadastrada com sucesso", "Cadastrar conta", MessageBoxButton.OK, MessageBoxImage.Exclamation);
 
+            clearForm();
+
         }
 
         private void btn_voltar_Click(object sender, RoutedEventArgs e)

@@ -11,6 +11,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 using FinanWPF.Controllers;
+using FinanWPF.Models;
+using FinanWPF.Views.Crud.ReadView;
 
 namespace FinanWPF.Views
 {
@@ -19,9 +21,13 @@ namespace FinanWPF.Views
     /// </summary>
     public partial class form_main : Window
     {
+
+        //Constructor
         public form_main()
         {
+
             InitializeComponent();
+
         }
 
 
@@ -57,8 +63,7 @@ namespace FinanWPF.Views
         private void MenuCadastrarCategoria_Click(object sender, RoutedEventArgs e)
         {
 
-            //MessageBox.Show("Cadastrar Categoria", "Cadastrar Categoria", MessageBoxButton.OK, MessageBoxImage.Information);
-
+      
             form_CadastrarCategoria form = new form_CadastrarCategoria();
             form.ShowDialog();
 
@@ -67,9 +72,8 @@ namespace FinanWPF.Views
         private void MenuMostrarCategoria_Click(object sender, RoutedEventArgs e)
         {
 
-            //MessageBox.Show("Listar Categoria", "Listar Categorias", MessageBoxButton.OK, MessageBoxImage.Information);
-
-            dataGrid.ItemsSource = CategoriaDAO.Read();
+            view_Categoria view_Categoria = new view_Categoria();
+            view_Categoria.ShowDialog();
 
         }
         //Editar/Excluir categoria
@@ -88,8 +92,6 @@ namespace FinanWPF.Views
         private void MenuCadastrarConta_Click(object sender, RoutedEventArgs e)
         {
 
-            //MessageBox.Show("Cadastrar Conta", "Cadastrar Conta", MessageBoxButton.OK, MessageBoxImage.Information);
-
             form_CadastrarConta form = new form_CadastrarConta();
             form.ShowDialog();
 
@@ -98,10 +100,10 @@ namespace FinanWPF.Views
         private void MenuMostrarConta_Click(object sender, RoutedEventArgs e)
         {
 
-            //MessageBox.Show("Listar contas", "Listar contas", MessageBoxButton.OK, MessageBoxImage.Information);
+            view_Conta y = new view_Conta();
 
-            dataGrid.ItemsSource = ContaDAO.Read();
-
+            y.ShowDialog();
+                
         }
         //Editar/excluir Contas
         private void MenuEditConta_Click(object sender, RoutedEventArgs e)
@@ -119,7 +121,6 @@ namespace FinanWPF.Views
         private void MenuCadastrarLancamentos_Click(object sender, RoutedEventArgs e)
         {
 
-            //MessageBox.Show("Cadastrar Lancamento", "Cadastrar Lancamento", MessageBoxButton.OK, MessageBoxImage.Information);
 
             form_CadastrarLancamento form = new form_CadastrarLancamento();
             form.ShowDialog();
@@ -129,9 +130,8 @@ namespace FinanWPF.Views
         private void MenuMostrarLancamentos_Click(object sender, RoutedEventArgs e)
         {
 
-            //MessageBox.Show("Listar Lancamentos", "Listar Lancamentos", MessageBoxButton.OK, MessageBoxImage.Information);
-
-            dataGrid.ItemsSource = LancamentoDAO.Read();
+            view_Conta y = new view_Conta();
+            y.ShowDialog();
 
         }
         //Editar/excluir lançamento
@@ -142,54 +142,13 @@ namespace FinanWPF.Views
 
         }
 
-
-        //FUNCIONALIDADE DE RESUMO
         private void MenuCriarResumo_Click(object sender, RoutedEventArgs e)
         {
 
-           
+            Resume x = new Resume();
+
+            x.ShowDialog();
 
         }
-
-        //Pesquisar categoria
-        private void btn_PesquisarCategoria_Click(object sender, RoutedEventArgs e)
-        {
-
-            dataGrid.ItemsSource = CategoriaDAO.ReadByName(form_PesquisarCategoria.Text);
-
-        }
-
-        //Pesquisar conta
-        private void btn_PesquisarConta_Click(object sender, RoutedEventArgs e)
-        {
-            //Pesquisa pelo nome
-            dataGrid.ItemsSource = ContaDAO.ReadByName(form_PesquisarConta.Text);
-            
-            //Pesquisa pelo cpf
-            //dataGrid.ItemsSource = ContaDAO.ReadByCpf(form_PesquisarConta.Text);
-
-        }
-
-        //Pesquisar lançamento
-        private void btn_PesquisarLancamento_Click(object sender, RoutedEventArgs e)
-        {
-
-            dataGrid.ItemsSource = LancamentoDAO.ReadByCategoryName(form_PesquisarLancamento.Text);
-
-            //Pesquisar pelo nome da conta
-            dataGrid.ItemsSource = LancamentoDAO.ReadByContaName(form_PesquisarLancamento.Text);
-
-            //Pesquisar pelo cpf da conta
-            //dataGrid.ItemsSource = LancamentoDAO.ReadByContaCPF(form_PesquisarLancamento.Text);
-
-        }
-        //Pesquisa lançamento pelo valor
-        private void btn_PesquisarLancamentoValor_Click(object sender, RoutedEventArgs e)
-        {
-
-            dataGrid.ItemsSource = LancamentoDAO.ReadByValorInter(Convert.ToDouble(form_PesquisarLancamentoValor1.Text), Convert.ToDouble(form_PesquisarLancamentoValor2.Text));
-
-        }
-
     }
 }

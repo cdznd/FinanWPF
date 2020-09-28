@@ -43,7 +43,12 @@ namespace FinanWPF.Controllers
         //By Conta cpf
         public static List<Lancamento> ReadByContaCPF(string cpf) => _context.Lancamento.Where(x => x.Conta.Cpf == cpf).ToList();
         //By intervalo de valor
-        public static List<Lancamento> ReadByValorInter(double value1, double value2) => _context.Lancamento.Where(x => x.Valor > value1 && x.Valor < value2).ToList();
+        //public static List<Lancamento> ReadByValorInter(double value1, double value2) => _context.Lancamento.Where(x => x.Valor > value1 && x.Valor < value2).ToList();
+        public static List<Lancamento> ReadByValorInter(string nome, double value1, double value2) => _context.Lancamento.Where(x => x.Valor > value1 && x.Valor < value2 && x.Conta.Nome == nome).ToList();
+        //By categoria and nome
+        public static List<Lancamento> ReadByTwo(string nome, string categoria) => _context.Lancamento.Where(x => x.Conta.Nome == nome && x.Categoria.Nome == categoria).ToList();
+        //by categoria, conta e valor
+        public static List<Lancamento> ReadByAll(string nome, string categoria, double value1, double value2 ) => _context.Lancamento.Where(x => x.Conta.Nome == nome && x.Categoria.Nome == categoria && x.Valor > value1 && x.Valor < value2).ToList();
 
         //UPDATE
         public static void Update(Lancamento p)

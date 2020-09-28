@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 C:\Users\FOX\source\repos\FinanC\FinanWPF\App.xaml
-7-762174547
+10282274735
 
-21-434825165
+25500849701
 2191538898269
-Views\Crud\CreateView\form_CadastrarCategoria.xaml;Views\Crud\CreateView\form_CadastrarConta.xaml;Views\Crud\CreateView\form_CadastrarLancamento.xaml;Views\Crud\UpdateView\form_UpdateCategoria.xaml;Views\Crud\UpdateView\form_UpdateConta.xaml;Views\Crud\UpdateView\form_UpdateLancamento.xaml;Views\form_main.xaml;
+Views\Crud\CreateView\form_CadastrarCategoria.xaml;Views\Crud\CreateView\form_CadastrarConta.xaml;Views\Crud\CreateView\form_CadastrarLancamento.xaml;Views\Crud\ReadView\view_Categoria.xaml;Views\Crud\ReadView\view_Conta.xaml;Views\Crud\UpdateView\form_UpdateCategoria.xaml;Views\Crud\UpdateView\form_UpdateConta.xaml;Views\Crud\UpdateView\form_UpdateLancamento.xaml;Views\form_main.xaml;Views\Resume.xaml;
 
 True
 
