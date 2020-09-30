@@ -24,6 +24,7 @@ namespace FinanWPF.Views
         {
 
             InitializeComponent();
+
             clearForm();
 
         }
@@ -40,15 +41,26 @@ namespace FinanWPF.Views
         private void btn_CadastrarCategoria_Click(object sender, RoutedEventArgs e)
         {
 
-            Categoria c = new Categoria();
+            if(!(input_CategoriaNome.Text == ""))
+            {
 
-            c.Nome = input_CategoriaNome.Text;
+                Categoria c = new Categoria();
 
-            CategoriaDAO.Create(c);
+                c.Nome = input_CategoriaNome.Text;
 
-            MessageBox.Show("Categoria cadastrada com sucesso", "Cadastrar Categoria", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                CategoriaDAO.Create(c);
 
-            clearForm();
+                MessageBox.Show("Categoria cadastrada com sucesso", "Cadastrar Categoria", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+
+                clearForm();
+
+            }
+            else
+            {
+
+                MessageBox.Show("Erro : Falha ao cadastrar, campo vazio ", "Cadastrar Categoria", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
 
         }
 

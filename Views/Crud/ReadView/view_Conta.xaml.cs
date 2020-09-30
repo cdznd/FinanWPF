@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +13,7 @@ using System.Windows.Shapes;
 
 using FinanWPF.Controllers;
 using FinanWPF.Models;
+using FinanWPF.Utils;
 
 namespace FinanWPF.Views.Crud.ReadView
 {
@@ -22,25 +24,18 @@ namespace FinanWPF.Views.Crud.ReadView
     {
         public view_Conta()
         {
+
             InitializeComponent();
 
-            //Dropdown conta
-            foreach (Conta c in ContaDAO.Read())
-            {
+            drop_FindConta.ItemsSource = ContaDAO.Read();
 
-                //drop_SelectCategoria.Items.Add(categoria.Id + " - " + categoria.Nome);
-                drop_FindConta.Items.Add(c.Nome);
+            drop_FindConta.DisplayMemberPath = "Nome";
+            drop_FindConta.SelectedValuePath = "Id";
 
-            }
+            drop_FindCategoria.ItemsSource = CategoriaDAO.Read();
 
-            //Dropdown categoria
-            foreach (Categoria c in CategoriaDAO.Read())
-            {
-
-                //drop_SelectCategoria.Items.Add(categoria.Id + " - " + categoria.Nome);
-                drop_FindCategoria.Items.Add(c.Nome);
-
-            }
+            drop_FindCategoria.DisplayMemberPath = "Nome";
+            drop_FindCategoria.SelectedValuePath = "Id";
 
         }
 
@@ -48,40 +43,147 @@ namespace FinanWPF.Views.Crud.ReadView
 
         private void btn_PesquisarConta_Click(object sender, RoutedEventArgs e)
         {
-            
-            
 
-            string x = drop_FindConta.SelectedItem.ToString();           
+            List<dynamic> list_Lanc = new List<dynamic>();
 
-            foreach(Conta y in ContaDAO.ReadByName(x))
+            if (drop_FindConta.SelectedItem != null)
             {
 
-                //Todas as contas do drop
-                //filter pela categoria
+                int Id = (int)drop_FindConta.SelectedValue;
 
-                if (checkBox_Categoria.IsChecked.Value || checkBox_first.IsChecked.Value) { 
+                Conta c = ContaDAO.ReadById(Id);
 
-                    if(checkBox_Categoria.IsChecked.Value && checkBox_first.IsChecked.Value)
+                //Verifica se um dos checkbox esta marcado
+                if (checkBox_Categoria.IsChecked.Value || checkBox_first.IsChecked.Value)
+                {
+
+                    //Verifica se os dois estão marcados juntos
+                    if (checkBox_Categoria.IsChecked.Value && checkBox_first.IsChecked.Value)
                     {
 
-                        dataGrid.ItemsSource = LancamentoDAO.ReadByAll(y.Nome, drop_FindCategoria.Text, Convert.ToDouble(form_PesquisarLancamentoValor1.Text), Convert.ToDouble(form_PesquisarLancamentoValor2.Text));
+                        int CategoriaId = (int)drop_FindCategoria.SelectedValue;
+
+                        if (!string.IsNullOrEmpty(drop_FindCategoria.Text) && !string.IsNullOrEmpty(form_PesquisarLancamentoValor1.Text) && !string.IsNullOrEmpty(form_PesquisarLancamentoValor2.Text))
+                        {
+
+                            foreach(Lancamento l in LancamentoDAO.ReadByAll(c.Id, CategoriaId , Convert.ToDouble(form_PesquisarLancamentoValor1.Text), Convert.ToDouble(form_PesquisarLancamentoValor2.Text))){
+
+
+                                dynamic Lancamentos = new
+                                {
+
+                                    Nome = l.Conta.Nome,
+                                    Categoria = l.Categoria.Nome,
+                                    Valor = l.Valor,
+                                    Data = l.CreationDate
+
+                                };
+
+                                list_Lanc.Add(Lancamentos);
+
+                            }
+
+                            dataGrid.ItemsSource = list_Lanc;
+
+                            dataGrid.Items.Refresh();
+
+                        }
+                        else
+                        {
+
+                            MessageBox.Show("Erro - Filtro invalido", "Contas e lancamentos", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+
+                        }
 
                     }
                     else
                     {
 
-                        if (checkBox_Categoria.IsChecked.Value)
-                        {
-
-                            dataGrid.ItemsSource = LancamentoDAO.ReadByTwo(y.Nome, drop_FindCategoria.Text);
-
-                        }
-
                         if (checkBox_first.IsChecked.Value)
                         {
 
-                            dataGrid.ItemsSource = LancamentoDAO.ReadByValorInter(y.Nome,       Convert.ToDouble(form_PesquisarLancamentoValor1.Text), Convert.ToDouble(form_PesquisarLancamentoValor2.Text));
+                            if (!string.IsNullOrEmpty(form_PesquisarLancamentoValor1.Text) && !string.IsNullOrEmpty(form_PesquisarLancamentoValor2.Text))
+                            {
 
+                                //MessageBox.Show("Erro - Filtro invalido - Intervalo de valores", "Contas e lancamentos", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                                foreach(Lancamento l in LancamentoDAO.ReadByValorInter(c.Id, Convert.ToDouble(form_PesquisarLancamentoValor1.Text), Convert.ToDouble(form_PesquisarLancamentoValor2.Text))){
+
+                                    dynamic Lancamentos = new
+                                    {
+
+                                        Nome = l.Conta.Nome,
+                                        Categoria = l.Categoria.Nome,
+                                        Valor = l.Valor,
+                                        Data = l.CreationDate
+
+                                    };
+
+                                    list_Lanc.Add(Lancamentos);
+
+                                }
+
+                                dataGrid.ItemsSource = list_Lanc;
+
+                                dataGrid.Items.Refresh();
+
+                            }
+                            else
+                            {
+
+                                MessageBox.Show("Erro - Filtro invalido - Intervalo de valores", "Contas e lancamentos", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+
+                            }
+
+                        }
+
+                        if (checkBox_Categoria.IsChecked.Value)
+                        {
+                            int CategoriaId = (int)drop_FindCategoria.SelectedValue;
+
+                            if (!string.IsNullOrEmpty(drop_FindCategoria.Text))
+                            {
+
+                                foreach(Lancamento l in LancamentoDAO.ReadByTwo(c.Id, CategoriaId))
+                                {
+
+                                    dynamic Lancamentos = new
+                                    {
+
+                                        Nome = l.Conta.Nome,
+                                        Categoria = l.Categoria.Nome,
+                                        Valor = l.Valor,
+                                        Data = l.CreationDate
+
+                                    };
+
+                                    list_Lanc.Add(Lancamentos);
+
+                                }
+
+                                dataGrid.ItemsSource = list_Lanc;
+
+                                dataGrid.Items.Refresh();
+
+                                label3.Content = "Total gasto na categoria " + CategoriaDAO.ReadById(CategoriaId).Nome + ": " + ResumeController.TotalPorCategoria(c.Id, CategoriaId) + "R$, " + ResumeController.Porcentagem(c.Id,CategoriaId) + "% do Total gasto.";
+
+
+
+                            }
+                            else
+                            {
+
+                                MessageBox.Show("Erro - Filtro invalido - Categoria ", "Contas e lancamentos", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+
+                            }
+
+                        }
+
+                        if (checkBox_Mes.IsChecked.Value)
+                        {
+
+                            //MessageBox.Show("" + (drop_FindMes.SelectedValuePath) ,"" ,MessageBoxButton.OK , MessageBoxImage.Exclamation);
+
+                            title_ContaNome.Content = drop_FindMes.SelectedValuePath;
                         }
 
                     }
@@ -90,15 +192,42 @@ namespace FinanWPF.Views.Crud.ReadView
                 else
                 {
 
-                    dataGrid.ItemsSource = ContaDAO.ReadLancamentos(y.Id);
+                    //dataGrid.ItemsSource = ContaDAO.ReadLancamentos(c.Id);
+                    foreach(Lancamento l in LancamentoDAO.ReadByContaId(c.Id))
+                    {
+
+                        dynamic Lancamentos = new
+                        {
+
+                            Nome = l.Conta.Nome,
+                            Categoria = l.Categoria.Nome,
+                            Valor = l.Valor,
+                            Data = l.CreationDate
+
+                        };
+
+                        list_Lanc.Add(Lancamentos);
+
+                    }
+
+                    dataGrid.ItemsSource = list_Lanc;
+
+                    dataGrid.Items.Refresh();
 
                 }
 
-                title_ContaNome.Content = y.Nome;
+                //title_ContaNome.Content = c.Nome;
 
-                title_Cpf.Content = y.Cpf;
+                title_Cpf.Content = c.Cpf;
 
-                title_Criacao.Content = Convert.ToString(y.CreationDate);
+                title_Criacao.Content = Convert.ToString(c.CreationDate);
+
+                label2.Content = "Total gasto na conta de " + c.Nome + ": " + ResumeController.TotalDeGasto(c.Id) + "R$.";
+            }
+            else
+            {
+
+                MessageBox.Show("Erro - Campo invalido", "Contas e lancamentos", MessageBoxButton.OK, MessageBoxImage.Exclamation);
 
             }
 

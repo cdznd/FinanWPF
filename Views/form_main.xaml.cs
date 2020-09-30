@@ -145,9 +145,9 @@ namespace FinanWPF.Views
         private void MenuCriarResumo_Click(object sender, RoutedEventArgs e)
         {
 
-            Resume x = new Resume();
+            //sume x = new Resume();
 
-            x.ShowDialog();
+            //ShowDialog();
 
         }
     }

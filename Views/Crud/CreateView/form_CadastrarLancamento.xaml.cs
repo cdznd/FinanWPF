@@ -23,23 +23,18 @@ namespace FinanWPF.Views
 
         public form_CadastrarLancamento()
         {
+
             InitializeComponent();
 
-            foreach (Categoria categoria in CategoriaDAO.Read())
-            {
+            drop_SelectCategoria.ItemsSource = CategoriaDAO.Read();
 
-                //drop_SelectCategoria.Items.Add(categoria.Id + " - " + categoria.Nome);
-                drop_SelectCategoria.Items.Add(categoria.Id + " - " + categoria.Nome + ".");
+            drop_SelectCategoria.DisplayMemberPath = "Nome";
+            drop_SelectCategoria.SelectedValuePath = "Id";
 
-            }
+            drop_SelectConta.ItemsSource = ContaDAO.Read();
 
-            foreach (Conta conta in ContaDAO.Read())
-            {
-
-                //drop_SelectConta.Items.Add(conta.Id + " - " + conta.Nome);
-                drop_SelectConta.Items.Add(conta.Id + " - " + conta.Nome + ".");
-
-            }
+            drop_SelectConta.DisplayMemberPath = "Nome";
+            drop_SelectConta.SelectedValuePath = "Id";
 
         }
 
@@ -52,25 +47,37 @@ namespace FinanWPF.Views
 
         private void btn_CadastrarLancamento_Click(object sender, RoutedEventArgs e)
         {
-            //Gambiarra Só é possivel escolher conta e categoria com id de 2 digitos, ou seja no maximo 99 contas / categorias.
-            Lancamento c = new Lancamento();
 
-            string x = drop_SelectCategoria.SelectedItem.ToString();
-            x = x.Substring(0, 2);
+            if (drop_SelectCategoria.SelectedItem == null || drop_SelectConta.SelectedItem == null || input_LancamentoValue.Text == "")
+            {
 
-            string y = drop_SelectConta.SelectedItem.ToString();
-            y = y.Substring(0,2);
+                MessageBox.Show("Erro : Campo invalido", "Cadastrar lançamento - Erro ", MessageBoxButton.OK, MessageBoxImage.Error);
 
-            c.ContaId = Convert.ToInt32(y);
-            c.CategoriaId = Convert.ToInt32(x);
+            }
+            else
+            {
 
-            c.Valor = Convert.ToDouble(input_LancamentoValue.Text);
+                int CategoriaId = (int)drop_SelectCategoria.SelectedValue;
 
-            LancamentoDAO.Create(c);
+                int ContaId = (int)drop_SelectConta.SelectedValue;
 
-            MessageBox.Show("Lançamento no valor de " + c.Valor + " na Categoria " + LancamentoDAO.ReadById(c.Id).Categoria.Nome + " para a Conta " + LancamentoDAO.ReadById(c.Id).Conta.Nome + " Cadastrado com sucesso!!", "Listar Categorias", MessageBoxButton.OK, MessageBoxImage.Information);
+                double valor = Convert.ToDouble(input_LancamentoValue.Text);
 
-            clearForm();
+                Lancamento c = new Lancamento();
+
+                c.ContaId = ContaId;
+
+                c.CategoriaId = CategoriaId;
+
+                c.Valor = valor;
+
+                LancamentoDAO.Create(c);
+
+                MessageBox.Show("Lançamento no valor de " + c.Valor + " na Categoria " + LancamentoDAO.ReadById(c.Id).Categoria.Nome + " para a Conta " + LancamentoDAO.ReadById(c.Id).Conta.Nome + " Cadastrado com sucesso!!", "Listar Categorias", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                clearForm();
+
+            }
 
         }
 

@@ -20,21 +20,36 @@ namespace FinanWPF.Views.Crud.ReadView
     /// </summary>
     public partial class view_Categoria : Window
     {
+
         public view_Categoria()
         {
             InitializeComponent();
-               
 
-            dataGrid_Categoria.ItemsSource = CategoriaDAO.Read();
+            List<dynamic> Categorias1 = new List<dynamic>();
 
-            //Dropdown categoria
-            foreach (Categoria c in CategoriaDAO.Read())
+            foreach (Categoria cc in CategoriaDAO.Read())
             {
 
-                //drop_SelectCategoria.Items.Add(categoria.Id + " - " + categoria.Nome);
-                drop_FindCategoria.Items.Add(c.Nome);
+                dynamic CategoriaC = new
+                {
 
+                    Nome = cc.Nome,
+                    Data = cc.CreationDate
+
+                };
+
+                Categorias1.Add(CategoriaC);
             }
+
+            dataGrid_Categoria.ItemsSource = Categorias1;
+
+            dataGrid_Categoria.Items.Refresh();
+
+            //Dropdown
+            drop_FindCategoria.ItemsSource = CategoriaDAO.Read();
+
+            drop_FindCategoria.DisplayMemberPath = "Nome";
+            drop_FindCategoria.SelectedValuePath = "Id";
 
         }
 
@@ -48,26 +63,56 @@ namespace FinanWPF.Views.Crud.ReadView
         private void btn_MostrarCategoria_Click(object sender, RoutedEventArgs e)
         {
 
-            string x = drop_FindCategoria.SelectedItem.ToString();
-
-            foreach (Categoria y in CategoriaDAO.ReadByName(x))
+            if (drop_FindCategoria.SelectedItem != null)
             {
 
-                //dataGrid_Categoria.ItemsSource = CategoriaDAO.ReadByName(y.Nome);
+                List<dynamic> Categorias = new List<dynamic>();
 
-                dataGrid_Categoria.ItemsSource = CategoriaDAO.Read();
+                int id = (int)drop_FindCategoria.SelectedValue;
 
-                dataGrid_Categoria2.ItemsSource = y.Lancamento;
+                Categoria c = CategoriaDAO.ReadById(id);
 
-                Categoria.Content = y.Nome;
+                Categoria.Content = c.Nome;
 
-                Lancamentos.Content = Convert.ToString(y.Lancamento.Count);                               
+                Lancamentos.Content = Convert.ToString(c.Lancamento.Count);
 
-                DataCriacao.Content = Convert.ToString(y.CreationDate);
+                DataCriacao.Content = Convert.ToString(c.CreationDate);
+
+                foreach (Lancamento l in c.Lancamento)
+                {
+
+                    dataGrid_Categoria2.ItemsSource = "";
+
+                    dynamic CategoriaD = new
+                    {
+
+                        Nome = c.Nome,
+                        Conta = l.Conta.Nome,
+                        Valor = l.Valor,
+                        Data = l.CreationDate
+
+                    };
+
+                    Categorias.Add(CategoriaD);
+
+                }
+
+                dataGrid_Categoria2.ItemsSource = Categorias;
+
+                dataGrid_Categoria2.Items.Refresh();
+
+            }
+            else
+            {
+
+                MessageBox.Show("Erro : Escolha uma categoria", "Categorias", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
 
-
         }
+
+
     }
+
 }
+

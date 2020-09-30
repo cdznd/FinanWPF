@@ -11,7 +11,6 @@ C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\FinanWPF_Marku
 C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\FinanWPF.g.resources
 C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\FinanWPF.AssemblyInfoInputs.cache
 C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\FinanWPF.AssemblyInfo.cs
-C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\FinanWPF.csproj.CoreCompileInputs.cache
 C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\FinanWPF.dll
 C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\FinanWPF.pdb
 C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\FinanWPF.genruntimeconfig.cache
@@ -69,9 +68,10 @@ C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\Views\Crud\Upd
 C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\Views\Crud\UpdateView\form_UpdateCategoria.baml
 C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\Views\Crud\UpdateView\form_UpdateConta.baml
 C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\Views\Crud\UpdateView\form_UpdateLancamento.baml
-C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\Views\Resume.g.cs
-C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\Views\Resume.baml
 C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\Views\Crud\ReadView\view_Conta.g.cs
 C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\Views\Crud\ReadView\view_Conta.baml
 C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\Views\Crud\ReadView\view_Categoria.g.cs
 C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\Views\Crud\ReadView\view_Categoria.baml
+C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\Views\Resume.g.cs
+C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\Views\Resume.baml
+C:\Users\FOX\source\repos\FinanC\FinanWPF\obj\Debug\netcoreapp3.1\FinanWPF.csproj.CoreCompileInputs.cache

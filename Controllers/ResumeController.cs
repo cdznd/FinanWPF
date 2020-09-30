@@ -10,46 +10,45 @@ namespace FinanWPF.Controllers
     public static class ResumeController
     {
         
-        //retorna o total de totos os lancamentos de um conta
-        //returning 11189.98
-        public static double TotalDeGasto(string nome)
+        public static double TotalDeGasto(int Id)
         {
 
             double valorTotal = 0;
 
-            foreach(Lancamento x in LancamentoDAO.ReadByContaName(nome))
+            foreach(Lancamento x in LancamentoDAO.ReadByContaId(Id))
             {
 
                 valorTotal += x.Valor;
 
             }
 
-            return valorTotal;
+            return Math.Round(valorTotal,2);
 
         }
 
         //Retorna o total de lançamento de uma conta de categoria
-        public static double TotalPorCategoria(string categoria,string nome)
+        
+        public static double TotalPorCategoria(int ContaId , int CategoriaId)
         {
 
             double valorTotal = 0;
 
-            foreach (Lancamento l in LancamentoDAO.ReadByTwo(nome, categoria)){
+            foreach (Lancamento l in LancamentoDAO.ReadByTwo(ContaId, CategoriaId)){
 
                 valorTotal += l.Valor;
 
             }
 
-            return  valorTotal;
+            return  Math.Round(valorTotal,2);
 
         }
 
-        public static double Porcentagem(string categoria, string nome)
+        public static double Porcentagem(int ContaId, int CategoriaId)
         {
 
-            return Math.Round(100 * TotalPorCategoria(categoria, nome) / TotalDeGasto(nome), 2);
+            return Math.Round(100 * TotalPorCategoria(ContaId, CategoriaId) / TotalDeGasto(ContaId), 2);
 
         }
-
+        
     }
 }

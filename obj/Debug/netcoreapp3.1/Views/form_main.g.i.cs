@@ -221,7 +221,7 @@ namespace FinanWPF.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/FinanWPF;V1.0.0.0;component/views/form_main.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/FinanWPF;component/views/form_main.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\form_main.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

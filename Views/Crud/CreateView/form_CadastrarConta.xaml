@@ -76,7 +76,7 @@
 
         <!-- Voltar -->
         <Button x:Name="btn_voltar"
-                Content=" Cancelar " 
+                Content=" Voltar " 
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Margin="100,156,0,0" 

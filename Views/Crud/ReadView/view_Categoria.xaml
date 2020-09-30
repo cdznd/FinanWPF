@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinanWPF.Views.Crud.ReadView"
         mc:Ignorable="d"
-        Title="Categorias" Height="351" Width="665">
+        Title="Categorias" Height="581" Width="1095">
     <Grid>
 
         <Label x:Name="title_TitleCategoriaView"
@@ -19,15 +19,55 @@
                Width="173"/>
 
         <DataGrid x:Name="dataGrid_Categoria"
-                  Margin="391,49,10,175"/>
+                  Margin="624,49,17,67"
+                  ItemsSource="{Binding SourceCollection}"
+                  AutoGenerateColumns="False">
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="Categoria"
+                                    Width="1*"
+                                    Binding="{Binding Nome}"/>
+
+                <DataGridTextColumn Header="Data"
+                                    Width="1*"
+                                    Binding="{Binding Data}"/>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
 
         <DataGrid x:Name="dataGrid_Categoria2"
-                  Margin="391,200,10,15"/>
+                  Margin="10,219,487,103"
+                  ItemsSource="{Binding SourceCollection}"
+                  AutoGenerateColumns="False">
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="Categoria"
+                                    Width="1*"
+                                    Binding="{Binding Nome}"/>
+
+                <DataGridTextColumn Header="Conta"
+                                    Width="1*"
+                                    Binding="{Binding Conta}"/>
+
+                <DataGridTextColumn Header="Valor"
+                                    Width="1*"
+                                    Binding="{Binding Valor}"/>
+
+                <DataGridTextColumn Header="Data"
+                                    Width="1*"
+                                    Binding="{Binding Data}"/>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
 
         <Button x:Name="btn_voltarCategoria" 
                 Content="Voltar" 
                 HorizontalAlignment="Left" 
-                Margin="246,285,0,0" 
+                Margin="478,467,0,0" 
                 VerticalAlignment="Top" 
                 Height="35" 
                 Width="130" Click="btn_voltar_Click"/>
@@ -35,7 +75,7 @@
         <Button x:Name="btn_MostrarCategoria" 
                 Content="Pesquisar" 
                 HorizontalAlignment="Left" 
-                Margin="288,94,0,0" 
+                Margin="520,90,0,0" 
                 VerticalAlignment="Top" 
                 Height="30" 
                 Width="88" Click="btn_MostrarCategoria_Click"/>
@@ -43,7 +83,7 @@
         <Button x:Name="btn_deletarCategoria" 
                 Content="Excluir" 
                 HorizontalAlignment="Left" 
-                Margin="10,295,0,0" 
+                Margin="180,477,0,0" 
                 VerticalAlignment="Top" 
                 Height="25" 
                 Width="76" Click="btn_voltar_Click"/>
@@ -51,7 +91,15 @@
         <Button x:Name="btn_editarCategoria" 
                 Content="Editar" 
                 HorizontalAlignment="Left" 
-                Margin="96,295,0,0" 
+                Margin="96,477,0,0" 
+                VerticalAlignment="Top" 
+                Height="25" 
+                Width="76" Click="btn_voltar_Click" RenderTransformOrigin="0.491,1.324"/>
+
+        <Button x:Name="btn_CadastrarCategoria" 
+                Content="Cadastrar" 
+                HorizontalAlignment="Left" 
+                Margin="10,477,0,0" 
                 VerticalAlignment="Top" 
                 Height="25" 
                 Width="76" Click="btn_voltar_Click" RenderTransformOrigin="0.491,1.324"/>
@@ -60,7 +108,7 @@
                   HorizontalAlignment="Left"
                   Margin="242,49,0,0" 
                   VerticalAlignment="Top" 
-                  Width="134" Height="35"/>
+                  Width="366" Height="35"/>
 
         <Label x:Name="text_TitleCategoria"
                Content="Categoria:"
@@ -84,7 +132,7 @@
         <Label x:Name="text_NumeroLancamentos" 
                Content="Numero de lancamentos:"
                HorizontalAlignment="Left"
-               Margin="10,96,0,0" 
+               Margin="10,89,0,0" 
                VerticalAlignment="Top" 
                FontWeight="bold"
                Width="157"
@@ -93,15 +141,15 @@
         <Label x:Name="Lancamentos" 
                Content = ""
                HorizontalAlignment="Left"
-               Margin="164,97,0,0"  
+               Margin="164,90,0,0"  
                VerticalAlignment="Top" 
-               Width="113"
+               Width="351"
                Height="25"/>
 
         <Label x:Name="text_DataCriacao" 
                Content="Data de criacao"
                HorizontalAlignment="Left"
-               Margin="10,135,0,0" 
+               Margin="10,120,0,0" 
                FontWeight="bold"
                VerticalAlignment="Top" 
                Width="100"
@@ -110,14 +158,14 @@
         <Label x:Name="DataCriacao" 
                Content=""
                HorizontalAlignment="Left"
-               Margin="112,135,0,0" 
+               Margin="110,120,0,0" 
                VerticalAlignment="Top" 
-               Width="141"
-               Height="50"/>
+               Width="405"
+               Height="30"/>
         <Label x:Name="text_DataCriacao_Copy" 
             Content="Lançamentos por categoria:"
             HorizontalAlignment="Left"
-            Margin="391,168,0,0" 
+            Margin="10,185,0,0" 
             FontWeight="bold"
             VerticalAlignment="Top" 
             Width="169"

@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:FinanWPF.Views"
         mc:Ignorable="d"
         Title="Resume" Height="450" Width="800">
+    
     <Grid>
-        <ListBox x:Name="listBox"/>
+        
     </Grid>
+    
 </Window>

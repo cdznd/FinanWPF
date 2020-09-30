@@ -20,22 +20,21 @@ namespace FinanWPF.Controllers
 
             _context.SaveChanges();
 
-            Console.WriteLine("Adicionado com sucesso ;) ");
-
         }
 
         //READ
 
-        //Return Categoria table and convert to List
+        //All
         public static List<Categoria> Read() => _context.Categoria.ToList();
 
-        //Return Categoria by ID
+        //ById
         public static Categoria ReadById(int id) => _context.Categoria.Find(id);
 
-        //Expressão lambda
-        //Percorre toda a tabela de Categoria e compara o nome com o parametro fornecido.
+        //ByName
         public static List<Categoria> ReadByName(string nome) => _context.Categoria.Where(x => x.Nome == nome).ToList();
-
+        //Ler todos lançamentos de uma categoria
+        public static List<Lancamento> ReadLancamentos(int id) => _context.Categoria.Find(id).Lancamento.ToList();
+        
         //UPDATE
         public static void Update(Categoria p)
         {

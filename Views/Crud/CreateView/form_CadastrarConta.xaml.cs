@@ -12,6 +12,7 @@ using System.Windows.Shapes;
 
 using FinanWPF.Models;
 using FinanWPF.Controllers;
+using FinanWPF.Utils;
 
 namespace FinanWPF.Views
 {
@@ -39,21 +40,41 @@ namespace FinanWPF.Views
         private void btn_CadastrarConta_Click(object sender, RoutedEventArgs e)
         {
 
-            Conta c = new Conta();
+            if(!(input_ContaNome.Text == "" || input_ContaCPF.Text == ""))
+            {
 
-            //Console.WriteLine(" - - - Cadastrar Conta - - - ");
+                Conta c = new Conta();
 
-            //Console.Write("Escreva o nome da Conta:");
-            c.Nome = input_ContaNome.Text;
+                c.Nome = input_ContaNome.Text;
 
-            //Console.Write("Escreva o cpf da Conta:");
-            c.Cpf = input_ContaCPF.Text;
+                string cpf = input_ContaCPF.Text;
 
-            ContaDAO.Create(c);
+                if (Utility.verificaCpfExistente(cpf))
+                {
 
-            MessageBox.Show("Conta cadastrada com sucesso", "Cadastrar conta", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    MessageBox.Show("Erro : CPF Ja existe", "Cadastrar conta", MessageBoxButton.OK, MessageBoxImage.Error);
 
-            clearForm();
+                }
+                else
+                {
+
+                    c.Cpf = input_ContaCPF.Text;
+
+                    ContaDAO.Create(c);
+
+                    MessageBox.Show("Conta cadastrada com sucesso", "Cadastrar conta", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+
+                    clearForm();
+                }               
+
+
+            }
+            else
+            {
+
+                MessageBox.Show("Erro : Campo vazio", "Cadastrar conta", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
 
         }
 
