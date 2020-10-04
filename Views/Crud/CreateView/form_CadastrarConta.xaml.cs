@@ -24,6 +24,9 @@ namespace FinanWPF.Views
         public form_CadastrarConta()
         {
             InitializeComponent();
+
+            clearForm();
+
         }
 
         public void clearForm()
@@ -43,13 +46,7 @@ namespace FinanWPF.Views
             if(!(input_ContaNome.Text == "" || input_ContaCPF.Text == ""))
             {
 
-                Conta c = new Conta();
-
-                c.Nome = input_ContaNome.Text;
-
-                string cpf = input_ContaCPF.Text;
-
-                if (Utility.verificaCpfExistente(cpf))
+                if (Utility.verificaCpfExistente(input_ContaCPF.Text))
                 {
 
                     MessageBox.Show("Erro : CPF Ja existe", "Cadastrar conta", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -58,15 +55,29 @@ namespace FinanWPF.Views
                 else
                 {
 
-                    c.Cpf = input_ContaCPF.Text;
+                    if (Utility.validaCpf(input_ContaCPF.Text)) {
 
-                    ContaDAO.Create(c);
+                        Conta c = new Conta();
 
-                    MessageBox.Show("Conta cadastrada com sucesso", "Cadastrar conta", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        c.Nome = input_ContaNome.Text;
 
-                    clearForm();
+                        c.Cpf = input_ContaCPF.Text;
+
+                        ContaDAO.Create(c);
+
+                        MessageBox.Show("Conta cadastrada com sucesso", "Cadastrar conta", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+
+                        clearForm();
+
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Erro : CPF Invalido", "Cadastrar conta", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                    }
+
                 }               
-
 
             }
             else

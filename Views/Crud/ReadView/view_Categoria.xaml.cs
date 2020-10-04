@@ -12,6 +12,8 @@ using System.Windows.Shapes;
 
 using FinanWPF.Controllers;
 using FinanWPF.Models;
+using FinanWPF.Views.Crud.UpdateView;
+using FinanWPF.Views.Crud.DeleteView;
 
 namespace FinanWPF.Views.Crud.ReadView
 {
@@ -111,6 +113,29 @@ namespace FinanWPF.Views.Crud.ReadView
 
         }
 
+        private void btn_CadastrarCategoria_Click(object sender, RoutedEventArgs e)
+        {
+
+            form_CadastrarCategoria form = new form_CadastrarCategoria();
+            form.ShowDialog();
+
+        }
+
+        private void btn_editarCategoria_Click(object sender, RoutedEventArgs e)
+        {
+
+            form_UpdateCategoria form = new form_UpdateCategoria();
+            form.ShowDialog();
+
+        }
+
+        private void btn_DeletarCategoria_Click(object sender, RoutedEventArgs e)
+        {
+
+            form_DeleteCategoria form = new form_DeleteCategoria();
+            form.ShowDialog();
+
+        }
 
     }
 

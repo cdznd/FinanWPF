@@ -28,40 +28,96 @@ namespace FinanWPF.Utils
 
         }
 
-        public static List<String> Months()
+		public static bool validaCpf(string cpf)
+		{
+
+			int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+			int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+
+			string tempCpf;
+			string digito;
+
+			int soma;
+			int resto;
+
+			//cpf = cpf.Trim();
+			//cpf = cpf.Replace(".", "").Replace("-", "");
+
+			if (cpf.Length != 11) {
+
+				return false;
+
+			}
+
+			tempCpf = cpf.Substring(0, 9);
+
+			soma = 0;
+
+			for (int i = 0; i < 9; i++) {
+
+				soma += int.Parse(tempCpf[i].ToString()) * multiplicador1[i];
+
+			}
+
+			resto = soma % 11;
+
+			if (resto < 2) {
+
+				resto = 0;
+			}
+			else
+			{ 
+				resto = 11 - resto;
+			}
+
+			digito = resto.ToString();
+
+			tempCpf = tempCpf + digito;
+
+			soma = 0;
+
+			for (int i = 0; i < 10; i++) { 
+
+				soma += int.Parse(tempCpf[i].ToString()) * multiplicador2[i];
+
+			}
+
+			resto = soma % 11;
+
+			if (resto < 2)
+            {
+				resto = 0;
+			}
+			else
+			{ 
+				resto = 11 - resto;
+				digito = digito + resto.ToString();
+			}
+
+			return cpf.EndsWith(digito);
+
+		}
+
+		public static bool verificarCategoriaExistente(string name)
         {
 
-            List<String> Meses = new List<String>();
+            foreach(Categoria x in CategoriaDAO.Read())
+            {
 
-            Meses.Add("Janeiro");
-            
-            Meses.Add("Janeiro");
+                if(name == x.Nome)
+                {
 
-            Meses.Add("Fevereiro");
+                    return true;
 
-            Meses.Add("Março");
+                }
 
-            Meses.Add("Abril");
+            }
 
-            Meses.Add("Maio");
-
-            Meses.Add("Junho");
-
-            Meses.Add("Julho");
-
-            Meses.Add("Agosto");
-
-            Meses.Add("Setembro");
-
-            Meses.Add("Outubro");
-
-            Meses.Add("Novembro");
-
-            Meses.Add("Dezembro");
-
-            return Meses;
+            return false;
 
         }
+
+        
 
     }
 }

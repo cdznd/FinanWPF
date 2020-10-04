@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Categorias" Height="581" Width="1095">
     <Grid>
-
+        
+        <!-- Title -->
         <Label x:Name="title_TitleCategoriaView"
                HorizontalAlignment="Left" 
                Margin="10,10,0,0" 
@@ -17,7 +18,19 @@
                VerticalAlignment="Top" 
                Height="39" 
                Width="173"/>
-
+        
+        <!-- Title 2 -->
+        <Label x:Name="title_TitleAllCategoriaView"
+               HorizontalAlignment="Left" 
+               Margin="625,10,0,0" 
+               Content="Todas categorias:" 
+               FontSize="15"
+               FontWeight="Bold"
+               VerticalAlignment="Top" 
+               Height="28" 
+               Width="173"/>
+        
+        <!-- Todos Lancamentos-->
         <DataGrid x:Name="dataGrid_Categoria"
                   Margin="624,49,17,67"
                   ItemsSource="{Binding SourceCollection}"
@@ -36,7 +49,18 @@
             </DataGrid.Columns>
 
         </DataGrid>
+        
+        <!-- Lancamentos por categoria title-->
+        <Label x:Name="title_LancamentosCategoria" 
+            Content="Lançamentos por categoria:"
+            HorizontalAlignment="Left"
+            Margin="10,185,0,0" 
+            FontWeight="bold"
+            VerticalAlignment="Top" 
+            Width="169"
+            Height="25"/>
 
+        <!-- Lancamentos por categoria -->
         <DataGrid x:Name="dataGrid_Categoria2"
                   Margin="10,219,487,103"
                   ItemsSource="{Binding SourceCollection}"
@@ -63,7 +87,8 @@
             </DataGrid.Columns>
 
         </DataGrid>
-
+        
+        <!-- Voltar -->
         <Button x:Name="btn_voltarCategoria" 
                 Content="Voltar" 
                 HorizontalAlignment="Left" 
@@ -71,7 +96,8 @@
                 VerticalAlignment="Top" 
                 Height="35" 
                 Width="130" Click="btn_voltar_Click"/>
-
+        
+        <!-- Pesquisar -->
         <Button x:Name="btn_MostrarCategoria" 
                 Content="Pesquisar" 
                 HorizontalAlignment="Left" 
@@ -79,37 +105,45 @@
                 VerticalAlignment="Top" 
                 Height="30" 
                 Width="88" Click="btn_MostrarCategoria_Click"/>
-
+        
+        <!-- Delete categoria -->
         <Button x:Name="btn_deletarCategoria" 
-                Content="Excluir" 
+                Content="Excluir categoria" 
                 HorizontalAlignment="Left" 
-                Margin="180,477,0,0" 
+                Margin="241,477,0,0" 
                 VerticalAlignment="Top" 
                 Height="25" 
-                Width="76" Click="btn_voltar_Click"/>
-
+                Width="110" 
+                Click="btn_DeletarCategoria_Click"/>
+        
+        <!-- Editar categoria -->
         <Button x:Name="btn_editarCategoria" 
-                Content="Editar" 
+                Content="Editar categoria" 
                 HorizontalAlignment="Left" 
-                Margin="96,477,0,0" 
+                Margin="136,477,0,0" 
                 VerticalAlignment="Top" 
                 Height="25" 
-                Width="76" Click="btn_voltar_Click" RenderTransformOrigin="0.491,1.324"/>
-
+                Width="100" 
+                Click="btn_editarCategoria_Click" RenderTransformOrigin="0.491,1.324"/>
+        
+        <!-- Cadastrar categoria -->
         <Button x:Name="btn_CadastrarCategoria" 
-                Content="Cadastrar" 
+                Content="Cadastrar categoria" 
                 HorizontalAlignment="Left" 
                 Margin="10,477,0,0" 
                 VerticalAlignment="Top" 
                 Height="25" 
-                Width="76" Click="btn_voltar_Click" RenderTransformOrigin="0.491,1.324"/>
-
+                Width="121" 
+                Click="btn_CadastrarCategoria_Click"/>
+        
+        <!-- Drop find categoria -->
         <ComboBox x:Name="drop_FindCategoria" 
                   HorizontalAlignment="Left"
                   Margin="242,49,0,0" 
                   VerticalAlignment="Top" 
                   Width="366" Height="35"/>
-
+        
+        <!-- Categoria title -->
         <Label x:Name="text_TitleCategoria"
                Content="Categoria:"
                HorizontalAlignment="Left"
@@ -119,7 +153,8 @@
                VerticalAlignment="Top" 
                Width="86" 
                Height="35"/>
-
+        
+        <!-- Categoria nome -->
         <Label x:Name="Categoria" 
                Content="" 
                HorizontalAlignment="Left"
@@ -128,7 +163,8 @@
                VerticalAlignment="Top" 
                Width="136"
                Height="35"/>
-
+        
+        <!-- Lancamentos Title -->
         <Label x:Name="text_NumeroLancamentos" 
                Content="Numero de lancamentos:"
                HorizontalAlignment="Left"
@@ -137,7 +173,8 @@
                FontWeight="bold"
                Width="157"
                Height="26"/>
-
+        
+        <!-- Numero de lancamentos -->
         <Label x:Name="Lancamentos" 
                Content = ""
                HorizontalAlignment="Left"
@@ -145,7 +182,8 @@
                VerticalAlignment="Top" 
                Width="351"
                Height="25"/>
-
+        
+        <!-- Criacao title -->
         <Label x:Name="text_DataCriacao" 
                Content="Data de criacao"
                HorizontalAlignment="Left"
@@ -154,7 +192,8 @@
                VerticalAlignment="Top" 
                Width="100"
                Height="25"/>
-
+        
+        <!-- Data de criacao -->
         <Label x:Name="DataCriacao" 
                Content=""
                HorizontalAlignment="Left"
@@ -162,14 +201,6 @@
                VerticalAlignment="Top" 
                Width="405"
                Height="30"/>
-        <Label x:Name="text_DataCriacao_Copy" 
-            Content="Lançamentos por categoria:"
-            HorizontalAlignment="Left"
-            Margin="10,185,0,0" 
-            FontWeight="bold"
-            VerticalAlignment="Top" 
-            Width="169"
-            Height="25"/>
 
     </Grid>
 

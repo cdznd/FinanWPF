@@ -28,8 +28,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Crud\DeleteView\" />
-  </ItemGroup>
-
 </Project>

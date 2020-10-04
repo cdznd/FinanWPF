@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinanWPF.Views"
         mc:Ignorable="d"
-        Title="Cadastrar Categoria" Height="205" Width="399" WindowStyle="SingleBorderWindow">
-    <Grid Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+        Title="Cadastrar Categoria" Height="242" Width="441" WindowStyle="SingleBorderWindow">
+    <Grid>
 
-        <!-- Categoria -->
+        <!-- Title -->
         <Label x:Name="label_TitleCadastrarCategoria" 
                Content="CADASTRAR CATEGORIA" 
                HorizontalAlignment="Left"
@@ -16,7 +16,7 @@
                Margin="10,10,0,0"
                FontWeight="Bold"/>
 
-
+        <!-- Nome input label -->
         <Label x:Name="label_InputCategoriaNome" 
                Content="Nome da categoria:" 
                HorizontalAlignment="Left"
@@ -43,17 +43,17 @@
                 Content=" Cadastrar " 
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Margin="10,120,0,0" 
+                Margin="10,150,0,0" 
                 Height="30"
                 Width="60"
                 Click="btn_CadastrarCategoria_Click"/>
 
-        <!-- Cancel -->
+        <!-- Voltar -->
         <Button x:Name="btn_voltar"
                 Content=" Voltar " 
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Margin="100,120,0,0" 
+                Margin="75,150,0,0" 
                 Height="30"
                 Width="60" Click="btn_voltar_Click"/>
 

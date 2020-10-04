@@ -13,6 +13,9 @@ using System.Windows.Shapes;
 using FinanWPF.Controllers;
 using FinanWPF.Models;
 using FinanWPF.Views.Crud.ReadView;
+using FinanWPF.Views.Crud.UpdateView;
+using FinanWPF.Views.Crud.DeleteView;
+
 
 namespace FinanWPF.Views
 {
@@ -46,7 +49,7 @@ namespace FinanWPF.Views
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
 
-            if (MessageBox.Show("Are you sure?", "Exiting", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
+            if (MessageBox.Show("Sair?", "Sair", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
             {
 
                 e.Cancel = true;
@@ -76,11 +79,21 @@ namespace FinanWPF.Views
             view_Categoria.ShowDialog();
 
         }
-        //Editar/Excluir categoria
+        //Editar categoria
         private void MenuEditCategoria_Click(object sender, RoutedEventArgs e)
         {
 
-            MessageBox.Show("Editar/Excluir Categoria", "Editar/Excluir Categoria", MessageBoxButton.OK, MessageBoxImage.Warning);
+            form_UpdateCategoria form = new form_UpdateCategoria();
+            form.ShowDialog();
+
+        }
+        //Deletar categoria
+        private void MenuDeleteCategoria_Click(object sender, RoutedEventArgs e)
+        {
+
+            form_DeleteCategoria form = new form_DeleteCategoria();
+
+            form.ShowDialog();
 
         }
 
@@ -96,20 +109,22 @@ namespace FinanWPF.Views
             form.ShowDialog();
 
         }
-        //Listar Contas
-        private void MenuMostrarConta_Click(object sender, RoutedEventArgs e)
-        {
 
-            view_Conta y = new view_Conta();
-
-            y.ShowDialog();
-                
-        }
-        //Editar/excluir Contas
+        //Editar Contas
         private void MenuEditConta_Click(object sender, RoutedEventArgs e)
         {
 
-            MessageBox.Show("Editar/Excluir contas", "Editar/Excluir contas", MessageBoxButton.OK, MessageBoxImage.Warning);
+            form_UpdateConta form = new form_UpdateConta();
+            form.ShowDialog();
+
+        }
+        //Deletar Contas
+        private void MenuDeleteConta_Click(object sender, RoutedEventArgs e)
+        {
+
+            form_DeleteConta form = new form_DeleteConta();
+
+            form.ShowDialog();
 
         }
 
@@ -126,29 +141,17 @@ namespace FinanWPF.Views
             form.ShowDialog();
 
         }
-        //Listar lançamento
-        private void MenuMostrarLancamentos_Click(object sender, RoutedEventArgs e)
+
+        //CRIAR RESUMO
+        private void MenuCriarResumo_Click(object sender, RoutedEventArgs e)
         {
 
             view_Conta y = new view_Conta();
             y.ShowDialog();
 
         }
-        //Editar/excluir lançamento
-        private void MenuEditLancamentos_Click(object sender, RoutedEventArgs e)
-        {
 
-            MessageBox.Show("Editar/Excluir Lancamentos", "Editar/Exluir Lancamentos", MessageBoxButton.OK, MessageBoxImage.Warning);
-
-        }
-
-        private void MenuCriarResumo_Click(object sender, RoutedEventArgs e)
-        {
-
-            //sume x = new Resume();
-
-            //ShowDialog();
-
-        }
+        
     }
+
 }

@@ -3,164 +3,112 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FinanWPF.Views"
         mc:Ignorable="d"
-        Title="FinanC - Home" Height="658" WindowStyle="ThreeDBorderWindow" WindowState="Maximized" WindowStartupLocation="CenterScreen" Width="916" Closing="Window_Closing">
+        Title="FinanC - Home" Height="623" WindowStyle="ThreeDBorderWindow" WindowState="Maximized" WindowStartupLocation="CenterScreen" Width="519" Closing="Window_Closing">
 
-    <Grid Margin="0,0,329,253">
+    <Grid>
 
-        <Menu Height="30"
-              Width="1000"
-              VerticalAlignment="Top"
-              >
+        <Menu x:Name="menu_Main"
+              Height="30"
+              Width="auto"
+              VerticalAlignment="Top">
 
             <!-- Evento = possivel ação para um componente. -->
-            <MenuItem Header="_File" 
+            <MenuItem x:Name="menu_Menu1"
+                      Header="_Menu" 
                       Height="auto" 
                       Width="auto"
                       Margin="20,5,20,5">
 
-                <MenuItem x:Name="ManuSair" 
-                          Header="_Quit"
+                <MenuItem x:Name="menu_Analise" 
+                      Header="_Analisar lançamentos" 
+                      Height="auto" 
+                      Width="auto"
+                      Margin="20,5,20,0" Click="MenuCriarResumo_Click"/>
+
+                <MenuItem x:Name="menu_Sair" 
+                          Header="_Sair"
                           Height="auto"
-                          Width="auto"
-                          Margin="20,5,20,5" Click="ManuSair_Click"/>
+                          Margin="20,5,20,5" 
+                          Click="ManuSair_Click"/>
 
             </MenuItem>
 
-            <MenuItem x:Name="MenuCategorias"
+            <MenuItem x:Name="menu_Categorias"
                       Header="_Categorias" 
                       Height="auto" 
                       Width="Auto"
                       Margin="20,5,20,5">
 
-                <MenuItem x:Name="MenuCadastrarCategoria"
+                <MenuItem x:Name="menu_CadastrarCategoria"
                           Header="_Cadastrar Categoria"
                           Height="Auto"
                           Width="Auto"
-                          Margin="20,5,20,5" Click="MenuCadastrarCategoria_Click"/>
+                          Margin="20,5,20,5" 
+                          Click="MenuCadastrarCategoria_Click"/>
 
-                <MenuItem x:Name="MenuMostrarCategoria"
+                <MenuItem x:Name="menu_MostrarCategoria"
                           Header="_Mostrar Categorias"
                           Height="Auto"
                           Width="Auto"
-                          Margin="20,5,20,5" Click="MenuMostrarCategoria_Click"/>
+                          Margin="20,5,20,5" 
+                          Click="MenuMostrarCategoria_Click"/>
 
-                <MenuItem x:Name="MenuEditCategoria"
-                          Header="_Editar/Deletar Categorias"
+                <MenuItem x:Name="menu_EditCategoria"
+                          Header="_Editar Categorias"
                           Height="Auto"
                           Width="Auto"
                           Margin="20,5,20,5" Click="MenuEditCategoria_Click"/>
 
+                <MenuItem x:Name="menu_DeleteCategoria"
+                          Header="_Deletar Categorias"
+                          Height="Auto"
+                          Width="Auto"
+                          Margin="20,5,20,5" Click="MenuDeleteCategoria_Click"/>
+
             </MenuItem>
 
-            <MenuItem x:Name="MenuContas"
+            <MenuItem x:Name="menu_Contas"
                       Header="_Contas" 
                       Height="auto" 
                       Width="Auto"
                       Margin="20,5,20,5">
 
-                <MenuItem x:Name="MenuCadastrarConta"
+                <MenuItem x:Name="menu_CadastrarConta"
                           Header="_Cadastrar Conta"
                           Height="auto"
                           Width="auto"
                           Margin="20,5,20,5" Click="MenuCadastrarConta_Click"/>
 
-                <MenuItem x:Name="MenuMostrarConta"
-                          Header="_Mostrar Conta"
-                          Height="auto"
-                          Width="auto"
-                          Margin="20,5,20,5" Click="MenuMostrarConta_Click"/>
-
-                <MenuItem x:Name="MenuEditConta"
-                          Header="_Editar/Deletar Conta"
+                <MenuItem x:Name="menu_EditConta"
+                          Header="_Editar Conta"
                           Height="auto"
                           Width="auto"
                           Margin="20,5,20,5" Click="MenuEditConta_Click"/>
 
+                <MenuItem x:Name="menu_DeleteConta"
+                          Header="_Deletar Conta"
+                          Height="auto"
+                          Width="auto"
+                          Margin="20,5,20,5" Click="MenuDeleteConta_Click"/>
+
             </MenuItem>
 
-            <MenuItem x:Name="MenuLancamentos"
+            <MenuItem x:Name="menu_Lancamentos"
                       Header="_Lançamentos" 
                       Height="auto" 
                       Width="Auto"
                       Margin="20,5,20,5">
 
-                <MenuItem x:Name="MenuCadastrarLancamentos"
+                <MenuItem x:Name="menu_CadastrarLancamentos"
                           Header="Cadastrar Lancamento"
                           Height="auto"
                           Width="auto"
                           Margin="20,5,20,5" Click="MenuCadastrarLancamentos_Click"/>
 
-                <MenuItem x:Name="MenuMostrarLancamentos"
-                          Header="Mostrar Lancamentos"
-                          Height="auto"
-                          Width="auto"
-                          Margin="20,5,20,5" Click="MenuMostrarLancamentos_Click"/>
-
-                <MenuItem x:Name="MenuEditLancamentos"
-                          Header="Editar/Excluir Lancamentos"
-                          Height="auto"
-                          Width="auto"
-                          Margin="20,5,20,5" Click="MenuEditLancamentos_Click"/>
-
             </MenuItem>
 
-            <MenuItem x:Name="MenuCriarResumo" 
-                      Header="_Criar Resumo" 
-                      Height="auto" 
-                      Width="auto"
-                      Margin="20,5,20,0" Click="MenuCriarResumo_Click"/>
-
         </Menu>
-        <DataGrid x:Name="dataGrid" Margin="58,203,576,321"/>
-
-        <Label x:Name="label_Valor1" 
-               Content="Lançamentos com valor maior que " 
-               HorizontalAlignment="Left" 
-               VerticalAlignment="Top"
-               Margin="60,72,0,0" 
-               />
-
-        <TextBox x:Name="form_PesquisarLancamentoValor1" 
-                 HorizontalAlignment="Left" 
-                 VerticalAlignment="Top"
-                 Margin="255,72,0,0" 
-                 TextWrapping="Wrap" 
-                 Width="40"
-                 Height="25"/>
-
-        <Label x:Name="label_Valor2" 
-               Content="e menor que " 
-               HorizontalAlignment="Left" 
-               VerticalAlignment="Top"
-               Margin="300,72,0,0" 
-               />
-
-        <TextBox x:Name="form_PesquisarLancamentoValor2" 
-                 HorizontalAlignment="Left" 
-                 VerticalAlignment="Top"
-                 Margin="380,72,0,0" 
-                 TextWrapping="Wrap" 
-                 Width="40"
-                 Height="25"/>
-
-        <Button x:Name="btn_PesquisarLancamentoValor"
-                Content="Pesquisar Lançamento"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Margin="430,71,0,0"
-                Height="25" 
-                Width="120"/>
-
-        <TextBox x:Name="form_PesquisarConta" 
-                 HorizontalAlignment="Left" 
-                 VerticalAlignment="Top"
-                 Margin="647,58,0,0" 
-                 TextWrapping="Wrap" 
-                 Width="130"
-                 Height="26"/>
-
 
     </Grid>
 

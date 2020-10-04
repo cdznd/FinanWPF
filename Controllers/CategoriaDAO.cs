@@ -10,7 +10,7 @@ namespace FinanWPF.Controllers
     public class CategoriaDAO
     {
 
-        private static Context _context = new Context();
+        private static Context _context = SingleContext.GetInstance();
 
         //CREATE
         public static void Create(Categoria c)
@@ -27,12 +27,13 @@ namespace FinanWPF.Controllers
         //All
         public static List<Categoria> Read() => _context.Categoria.ToList();
 
-        //ById
+        //ById => Retorna um objeto.
         public static Categoria ReadById(int id) => _context.Categoria.Find(id);
 
         //ByName
         public static List<Categoria> ReadByName(string nome) => _context.Categoria.Where(x => x.Nome == nome).ToList();
-        //Ler todos lançamentos de uma categoria
+
+        //Retorna todos lançamentos de uma categoria
         public static List<Lancamento> ReadLancamentos(int id) => _context.Categoria.Find(id).Lancamento.ToList();
         
         //UPDATE
@@ -42,8 +43,6 @@ namespace FinanWPF.Controllers
             _context.Categoria.Update(p);
             _context.SaveChanges();
 
-            Console.WriteLine("Atualizado com sucesso ;) ");
-
         }
 
         //DELETE
@@ -52,8 +51,6 @@ namespace FinanWPF.Controllers
 
             _context.Categoria.Remove(p);
             _context.SaveChanges();
-
-            Console.WriteLine("Excluido com sucesso ;) ");
 
         }
 

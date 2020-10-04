@@ -5,34 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinanWPF.Views.Crud.ReadView"
         mc:Ignorable="d"
-        Title="Analise de lancamentos" Height="712" Width="1342">
+        Title="Analise de lancamentos" Height="803" Width="1442">
 
     <Grid>
 
+        <!-- Label conta-->
+        <Label x:Name="textBox_Copy" 
+               HorizontalAlignment="Left" 
+               Margin="400,10,0,0" 
+               Content="Conta"
+               VerticalAlignment="Top" 
+               FontWeight="Bold"
+               Width="120"/>
+
+        <!-- Dropdown Conta -->
         <ComboBox x:Name="drop_FindConta"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Top"
                   Margin="400,50,0,0" 
                   Width="506"
                   Height="25"/>
-
-        <Button x:Name="btn_PesquisarConta"
-                Content="Pesquisar"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Margin="400,285,0,0"
-                Height="25" 
-                Width="506" Click="btn_PesquisarConta_Click"/>
-
-        <Label x:Name="title_LancamentosGrid" 
-               HorizontalAlignment="Left" 
-               VerticalAlignment="Top"
-               Margin="10,270,0,0" 
-               Content="Lançamentos" 
-               FontSize="25"
-               FontWeight="Bold"
-               Height="40" 
-               Width="286"/>
 
         <Label x:Name="title_Title" 
                Content="Conta"
@@ -43,8 +35,7 @@
                FontWeight="Bold"
                RenderTransformOrigin="0.574,-0.42" 
                Height="45" 
-               Width="214"
-               />
+               Width="214"/>
 
         <Label x:Name="title_ContaNome" 
                HorizontalAlignment="Left" 
@@ -56,16 +47,6 @@
                RenderTransformOrigin="0.574,-0.42" 
                Height="40" 
                Width="369"/>
-
-        <Label x:Name="ContaNome" 
-               HorizontalAlignment="Left" 
-               VerticalAlignment="Top"
-               Margin="90,60,0,0" 
-               FontSize="20"
-               FontWeight="Bold"
-               RenderTransformOrigin="0.574,-0.42" 
-               Height="40" 
-               Width="140"/>
 
         <Label x:Name="title_ContaCpf" 
                HorizontalAlignment="Left" 
@@ -111,9 +92,19 @@
                Width="244"/>
 
 
-
+        <!-- Lancamentos -->
+        <Label x:Name="title_LancamentosGrid" 
+               HorizontalAlignment="Left" 
+               VerticalAlignment="Top"
+               Margin="10,337,0,0" 
+               Content="Lançamentos" 
+               FontSize="25"
+               FontWeight="Bold"
+               Height="40" 
+               Width="286"/>
+        
         <DataGrid x:Name="dataGrid" 
-                  Margin="10,316,436,86"
+                  Margin="10,392,536,76"
                   ItemsSource="{Binding SourceCollection}"
                   AutoGenerateColumns="False">
 
@@ -139,109 +130,48 @@
 
         </DataGrid>
 
-        <Button x:Name="btn_CadastrarConta" 
-                Content="Criar Conta" 
-                HorizontalAlignment="Left" 
-                Margin="930,50,0,0" 
-                VerticalAlignment="Top" 
-                Width="106" 
-                Height="28"
-                Click="btn_CadastrarConta_Click"/>
+        <!-- Button Sair -->
+        <Button x:Name="btn_Sair" Content="Voltar" HorizontalAlignment="Left" Margin="10,282,0,0" VerticalAlignment="Top" Width="86" Height="28" Click="btn_Sair_Click"/>
 
-        <Button x:Name="btn_Sair" Content="Voltar" HorizontalAlignment="Left" Margin="10,229,0,0" VerticalAlignment="Top" Width="86" Height="28" Click="btn_Sair_Click"/>
-        <Label x:Name="label_Valor1" 
-            Content="Lançamentos com valor maior que " 
-            HorizontalAlignment="Left" 
-            VerticalAlignment="Top"
-            Margin="400,130,0,0" 
-               />
-        <TextBox x:Name="form_PesquisarLancamentoValor1" 
-            HorizontalAlignment="Left" 
-            VerticalAlignment="Top"
-            Margin="597,130,0,0" 
-            TextWrapping="Wrap" 
-            Width="40"
-            Height="25"/>
-        <Label x:Name="label_Valor2" 
-            Content="e menor que " 
-            HorizontalAlignment="Left" 
-            VerticalAlignment="Top"
-            Margin="647,130,0,0" 
-               />
-        <TextBox x:Name="form_PesquisarLancamentoValor2" 
-            HorizontalAlignment="Left" 
-            VerticalAlignment="Top"
-            Margin="727,130,0,0" 
-            TextWrapping="Wrap" 
-            Width="40"
-            Height="25"/>
-
-        <Label x:Name="textBox" 
+        <!-- FILTROS -->
+        <Label x:Name="label_FiltrosTitle" 
                  HorizontalAlignment="Left" 
                  Margin="400,90,0,0" 
                  Content="Filtros:"
                  VerticalAlignment="Top" 
                  FontWeight="Bold"
                  Width="120"/>
-        <ComboBox x:Name="drop_FindCategoria" 
-            HorizontalAlignment="Left"
-            Margin="477,170,0,0" 
-            VerticalAlignment="Top" 
-            Width="131" Height="24"/>
 
-        <ComboBox x:Name="drop_FindMes" 
-            HorizontalAlignment="Left"
-            Margin="440,210,0,0" 
-            VerticalAlignment="Top" 
-            Width="131" Height="24"/>
-
-        <ComboBox x:Name="drop_dia1" 
-            HorizontalAlignment="Left"
-            Margin="432,250,0,0" 
-            VerticalAlignment="Top" 
-            Width="35" Height="24"/>
-
-        <ComboBox x:Name="drop_dia2" 
-            HorizontalAlignment="Left"
-            Margin="520,250,0,0" 
-            VerticalAlignment="Top" 
-            Width="35" Height="24"/>
-
-        <Label x:Name="label" 
-               Content="Categoria:"
+        <!-- Filtro valor -->
+        <Label x:Name="label_Valor1" 
+               Content="Lançamentos com valor maior que " 
                HorizontalAlignment="Left" 
-               Margin="400,170,0,0"
-               VerticalAlignment="Top" 
-               Width="73"/>
+               VerticalAlignment="Top"
+               Margin="400,130,0,0" />
 
-        <Label x:Name="label5" 
-               Content="Mes:"
+        <TextBox x:Name="form_PesquisarLancamentoValor1" 
+                 HorizontalAlignment="Left" 
+                 VerticalAlignment="Top"
+                 Margin="597,130,0,0" 
+                 TextWrapping="Wrap" 
+                 Width="40"
+                 Height="25"
+                 BorderThickness="0,0,0,1"/>
+
+        <Label x:Name="label_Valor2" 
+               Content="e menor que " 
                HorizontalAlignment="Left" 
-               Margin="400,210,0,0"
-               VerticalAlignment="Top" 
-               Width="36"/>
+               VerticalAlignment="Top"
+               Margin="647,130,0,0" />
 
-        <Label x:Name="label_dia1" 
-               Content="Dia"
-               HorizontalAlignment="Left" 
-               Margin="400,250,0,0"
-               VerticalAlignment="Top" 
-               Width="27"/>
-
-        <Label x:Name="label_dia2" 
-               Content="até dia"
-               HorizontalAlignment="Left" 
-               Margin="470,250,0,0"
-               VerticalAlignment="Top" 
-               Width="45"/>
-
-        <Label x:Name="textBox_Copy" 
-            HorizontalAlignment="Left" 
-            Margin="400,10,0,0" 
-            Content="Conta"
-            VerticalAlignment="Top" 
-            FontWeight="Bold"
-            Width="120"/>
+        <TextBox x:Name="form_PesquisarLancamentoValor2" 
+                 HorizontalAlignment="Left" 
+                 VerticalAlignment="Top"
+                 Margin="727,130,0,0" 
+                 TextWrapping="Wrap" 
+                 Width="40"
+                 Height="25"
+                 BorderThickness="0,0,0,1"/>
 
         <CheckBox x:Name="checkBox_first" 
                   Content=""
@@ -249,42 +179,135 @@
                   Margin="772,134,0,0" 
                   VerticalAlignment="Top"/>
 
+        <!-- Filtro Categoria -->
+        <Label x:Name="label_CategoriaFiltro" 
+               Content="Categoria:"
+               HorizontalAlignment="Left" 
+               Margin="400,170,0,0"
+               VerticalAlignment="Top" 
+               Width="73"/>
+
+        <ComboBox x:Name="drop_FindCategoria" 
+                  HorizontalAlignment="Left"
+                  Margin="477,170,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="131" 
+                  Height="24"/>
+
         <CheckBox x:Name="checkBox_Categoria" 
                   Content=""
                   HorizontalAlignment="Left" 
                   Margin="613,175,0,0" 
                   VerticalAlignment="Top"/>
 
+        <!-- Filtro mes -->
+        <Label x:Name="label_MesFiltro" 
+               Content="Mes:"
+               HorizontalAlignment="Left" 
+               Margin="400,210,0,0"
+               VerticalAlignment="Top" 
+               Width="36"/>
+
+        <ComboBox x:Name="drop_FindMes" 
+                  HorizontalAlignment="Left"
+                  Margin="440,210,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="131" 
+                  Height="24"/>
+
         <CheckBox x:Name="checkBox_Mes" 
                   Content=""
                   HorizontalAlignment="Left" 
                   Margin="576,215,0,0" 
-                  VerticalAlignment="Top" RenderTransformOrigin="-1.202,0.466"/>
+                  VerticalAlignment="Top" 
+                  RenderTransformOrigin="-1.202,0.466" 
+                  Checked="checkBox_Mes_Checked"
+                  Unchecked="checkBox_Mes_Unchecked"/>
+
+        <!-- Filtro dia -->
+        <Label x:Name="label_dia1" 
+               Content="Dia"
+               HorizontalAlignment="Left" 
+               Margin="400,250,0,0"
+               VerticalAlignment="Top" 
+               Width="27" 
+               Opacity="0.5"/>
+
+        <TextBox x:Name="form_day1" 
+                 HorizontalAlignment="Left" 
+                 VerticalAlignment="Top"
+                 Margin="430,251,0,0" 
+                 TextWrapping="Wrap" 
+                 Width="40"
+                 Height="25"
+                 BorderThickness="0,0,0,1"/>
+
+        <Label x:Name="label_dia2" 
+               Content="até dia"
+               HorizontalAlignment="Left" 
+               Margin="470,250,0,0"
+               VerticalAlignment="Top" 
+               Width="45" 
+               Opacity="0.5"/>
+
+        <TextBox x:Name="form_day2" 
+                 HorizontalAlignment="Left" 
+                 VerticalAlignment="Top"
+                 Margin="515,251,0,0" 
+                 TextWrapping="Wrap" 
+                 Width="40"
+                 Height="25"
+                 BorderThickness="0,0,0,1"/>
 
         <CheckBox x:Name="checkBox_Dia" 
                   Content=""
                   HorizontalAlignment="Left" 
                   Margin="560,255,0,0" 
-                  VerticalAlignment="Top" RenderTransformOrigin="-1.202,0.466"/>
+                  VerticalAlignment="Top" 
+                  RenderTransformOrigin="-1.202,0.466" 
+                  IsEnabled="False"/>
+        
+        <!-- Button pesquisa -->
+        <Button x:Name="btn_PesquisarConta"
+                Content="Pesquisar"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="400,285,0,0"
+                Height="25" 
+                Width="506" Click="btn_PesquisarConta_Click"/>
 
-        <Button x:Name="btn_EditarConta" 
-                Content="Editar" 
+        <!-- Buttons -->
+
+        <Button x:Name="btn_CadastrarConta" 
+                Content="Criar Conta" 
                 HorizontalAlignment="Left" 
-                Margin="930,130,0,0" 
+                Margin="911,51,0,0" 
                 VerticalAlignment="Top" 
-                Width="60" 
-                Height="24" 
-                />
+                Width="106" 
+                Height="28"
+                Click="btn_CadastrarConta_Click"/>
 
         <Button x:Name="btn_ExcluirConta"
-                Content="Excluir" 
+                Content="Excluir Conta" 
                 HorizontalAlignment="Left" 
-                Margin="930,90,0,0" 
+                Margin="911,91,0,0" 
                 VerticalAlignment="Top"
                 Width="84"
-                Height="25"
+                Height="25" Click="btn_ExcluirConta_Click"
                />
-        <Label x:Name="label1" 
+
+        <Button x:Name="btn_EditarConta" 
+                Content="Editar Conta" 
+                HorizontalAlignment="Left" 
+                Margin="911,131,0,0" 
+                VerticalAlignment="Top" 
+                Width="84" 
+                Height="24" Click="btn_EditarConta_Click" 
+                />
+
+        <!-- Resumo -->
+
+        <Label x:Name="label_ResumoTitle" 
                Content="Resumo" 
                FontWeight="bold"
                HorizontalAlignment="Left" 
@@ -307,9 +330,22 @@
                VerticalAlignment="Top" 
                Height="49" 
                Width="421"/>
-        
-        <Calendar x:Name="calendar" 
-            HorizontalAlignment="Left" Margin="1101,48,0,0" VerticalAlignment="Top"/>
+
+        <Label x:Name="label4" 
+               Content="" 
+               HorizontalAlignment="Left" 
+               Margin="911,423,0,0" 
+               VerticalAlignment="Top" 
+               Height="49" 
+               Width="421"/>
+
+        <Label x:Name="label6" 
+               Content="" 
+               HorizontalAlignment="Left" 
+               Margin="911,477,0,0" 
+               VerticalAlignment="Top" 
+               Height="49" 
+               Width="421"/>
 
 
     </Grid>

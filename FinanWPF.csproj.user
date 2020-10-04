@@ -16,6 +16,12 @@
     <Compile Update="Views\Crud\CreateView\form_CadastrarLancamento.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Crud\DeleteView\form_DeleteCategoria.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Crud\DeleteView\form_DeleteConta.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Crud\ReadView\view_Categoria.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -28,13 +34,7 @@
     <Compile Update="Views\Crud\UpdateView\form_UpdateConta.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Crud\UpdateView\form_UpdateLancamento.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\form_main.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\Resume.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -46,6 +46,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Crud\CreateView\form_CadastrarLancamento.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Crud\DeleteView\form_DeleteCategoria.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Crud\DeleteView\form_DeleteConta.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Crud\ReadView\view_Categoria.xaml">
@@ -60,13 +66,7 @@
     <Page Update="Views\Crud\UpdateView\form_UpdateConta.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Crud\UpdateView\form_UpdateLancamento.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Views\form_main.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\Resume.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -1,0 +1,30 @@
+﻿<Window x:Class="FinanWPF.Views.Crud.DeleteView.form_DeleteConta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinanWPF.Views.Crud.DeleteView"
+        mc:Ignorable="d"
+        Title="Deletar Conta" Height="354" Width="306">
+    <Grid>
+        <!-- Categoria -->
+        <Label x:Name="label_TitleDeletarCategoria" 
+            Content="DELETAR CONTA" 
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="10,10,0,0"
+            FontWeight="Bold"/>
+
+        <Label x:Name="label_DeletarCategoria" 
+            Content="Escolha a conta para excluir:" 
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="10,50,0,0" Width="200"/>
+
+        <ComboBox x:Name="drop_SelectConta" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top" Width="223" Height="25"/>
+        
+        <Button x:Name="btn_deletar" Content="Deletar" HorizontalAlignment="Left" Margin="13,276,0,0" VerticalAlignment="Top" Height="25" Width="76" Click="btn_deletar_Click"/>
+        <Button x:Name="btn_voltar" Content="Voltar" HorizontalAlignment="Left" Margin="94,276,0,0" VerticalAlignment="Top" Height="25" Width="59" Click="btn_voltar_Click"/>
+
+    </Grid>
+</Window>

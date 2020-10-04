@@ -12,12 +12,11 @@ using System.Windows.Shapes;
 
 using FinanWPF.Models;
 using FinanWPF.Controllers;
+using FinanWPF.Utils;
 
 namespace FinanWPF.Views
 {
-    /// <summary>
-    /// Interaction logic for form_CadastrarCategoria.xaml
-    /// </summary>
+
     public partial class form_CadastrarCategoria : Window
     {
         public form_CadastrarCategoria()
@@ -38,21 +37,33 @@ namespace FinanWPF.Views
 
         }
 
+        //CREATE
         private void btn_CadastrarCategoria_Click(object sender, RoutedEventArgs e)
         {
 
-            if(!(input_CategoriaNome.Text == ""))
+            if (!(input_CategoriaNome.Text == ""))
             {
 
-                Categoria c = new Categoria();
+                if (!(Utils.Utility.verificarCategoriaExistente(input_CategoriaNome.Text)))
+                {
 
-                c.Nome = input_CategoriaNome.Text;
+                    Categoria c = new Categoria();
 
-                CategoriaDAO.Create(c);
+                    c.Nome = input_CategoriaNome.Text;
 
-                MessageBox.Show("Categoria cadastrada com sucesso", "Cadastrar Categoria", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    CategoriaDAO.Create(c);
 
-                clearForm();
+                    MessageBox.Show("Categoria cadastrada com sucesso", "Cadastrar Categoria", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+
+                    clearForm();
+
+                }
+                else
+                {
+
+                    MessageBox.Show("Erro : Falha ao cadastrar, Categoria ja existe. ", "Cadastrar Categoria", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                }
 
             }
             else

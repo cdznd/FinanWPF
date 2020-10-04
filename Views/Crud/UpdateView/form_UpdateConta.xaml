@@ -5,8 +5,84 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinanWPF.Views.Crud.UpdateView"
         mc:Ignorable="d"
-        Title="form_UpdateConta" Height="450" Width="800">
+        Title="Editar conta" Height="365" Width="312">
     <Grid>
+
+
+        <!-- Title -->
+        <Label x:Name="label_TitleCadastrarConta" 
+            Content="ATUALIZAR CONTA" 
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="10,10,0,0"
+            FontWeight="Bold"/>
+
+        <ComboBox x:Name="drop_SelectConta" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <!-- Name Label -->
+        <Label x:Name="label_InputContaNome" 
+            Content="Nome:" 
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="4,109,0,0"
+            Width="Auto"
+            Height="25"
+            FontWeight="Bold"/>
+
+        <!-- Name Input -->
+        <TextBox x:Name="input_ContaNome"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="63,109,0,0" 
+            Width="120"
+            Height="25"
+            TextWrapping="Wrap"
+            Opacity="1" 
+            BorderThickness="0,0,0,1"/>
+
+        <!-- CPF Label -->
+        <Label x:Name="label_InputContaCPF" 
+            Content="CPF da conta:" 
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="4,164,0,0"
+            Width="Auto"
+            Height="25"
+            FontWeight="Bold"/>
+
+        <!-- CPF Input -->
+        <TextBox x:Name="input_ContaCPF"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="94,164,0,0" 
+            Width="120"
+            Height="25"
+            TextWrapping="Wrap"
+            Opacity="1" 
+            BorderThickness="0,0,0,1"/>
+
+
+
+        <!-- Submit -->
+        <Button x:Name="btn_AtualizarConta"
+            Content="Atualizar" 
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="10,244,0,0"                
+            Height="30"
+            Width="60"
+            Click="btn_AtualizarConta_Click"/>
+
+        <!-- Voltar -->
+        <Button x:Name="btn_voltar"
+            Content=" Voltar " 
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="96,244,0,0" 
+            Height="30"
+            Width="60" Click="btn_voltar_Click"/>
         
+        <Button x:Name="button" Content="Confirmar" HorizontalAlignment="Left" Margin="143,52,0,0" VerticalAlignment="Top" Height="22" Width="71" Click="button_Click"/>
+
     </Grid>
 </Window>

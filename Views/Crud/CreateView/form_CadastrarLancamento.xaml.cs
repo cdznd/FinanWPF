@@ -26,6 +26,9 @@ namespace FinanWPF.Views
 
             InitializeComponent();
 
+            clearForm();
+            //Prenche os dropdown
+
             drop_SelectCategoria.ItemsSource = CategoriaDAO.Read();
 
             drop_SelectCategoria.DisplayMemberPath = "Nome";
@@ -51,7 +54,7 @@ namespace FinanWPF.Views
             if (drop_SelectCategoria.SelectedItem == null || drop_SelectConta.SelectedItem == null || input_LancamentoValue.Text == "")
             {
 
-                MessageBox.Show("Erro : Campo invalido", "Cadastrar lançamento - Erro ", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Erro : Campo vazio", "Cadastrar lançamento - Erro ", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
             else
