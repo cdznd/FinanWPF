@@ -53,6 +53,9 @@ namespace FinanWPF.Migrations
                     b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("dataNasc")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Conta");

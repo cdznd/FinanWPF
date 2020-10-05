@@ -36,6 +36,8 @@ namespace FinanWPF.Views
 
             input_ContaCPF.Clear();
 
+            input_DataNasc.Clear();
+
             input_ContaNome.Focus();
 
         }
@@ -43,7 +45,7 @@ namespace FinanWPF.Views
         private void btn_CadastrarConta_Click(object sender, RoutedEventArgs e)
         {
 
-            if(!(input_ContaNome.Text == "" || input_ContaCPF.Text == ""))
+            if(!(input_ContaNome.Text == "" || input_ContaCPF.Text == "" || input_DataNasc.Text ==  ""))
             {
 
                 if (Utility.verificaCpfExistente(input_ContaCPF.Text))
@@ -62,6 +64,8 @@ namespace FinanWPF.Views
                         c.Nome = input_ContaNome.Text;
 
                         c.Cpf = input_ContaCPF.Text;
+
+                        c.dataNasc = input_DataNasc.Text;
 
                         ContaDAO.Create(c);
 

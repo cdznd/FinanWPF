@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FinanWPF.Migrations
 {
-    public partial class Migra : Migration
+    public partial class finalMigrationfinal : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,6 +29,7 @@ namespace FinanWPF.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(nullable: true),
                     Cpf = table.Column<string>(nullable: true),
+                    dataNasc = table.Column<string>(nullable: true),
                     CreationDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>

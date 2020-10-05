@@ -80,6 +80,28 @@
                Height="30" 
                Width="120"/>
 
+        <Label x:Name="title_ContaDataNasc" 
+               Content="Data de nascimento:"
+               HorizontalAlignment="Left" 
+               VerticalAlignment="Top"
+               Margin="10,165,0,0" 
+               FontSize="15"
+               FontWeight="Bold"               
+               RenderTransformOrigin="0.574,-0.42" 
+               Height="30" 
+               Width="161"/>
+
+        <Label x:Name="ContaDataNasc" 
+               Content=""
+               HorizontalAlignment="Left" 
+               VerticalAlignment="Top"
+               Margin="176,165,0,0" 
+               FontSize="15"
+               FontWeight="Bold"               
+               RenderTransformOrigin="0.574,-0.42" 
+               Height="30" 
+               Width="161"/>
+
         <Label x:Name="title_Criacao" 
                HorizontalAlignment="Left" 
                VerticalAlignment="Top"
@@ -102,7 +124,7 @@
                FontWeight="Bold"
                Height="40" 
                Width="286"/>
-        
+
         <DataGrid x:Name="dataGrid" 
                   Margin="10,392,536,76"
                   ItemsSource="{Binding SourceCollection}"
@@ -266,7 +288,7 @@
                   VerticalAlignment="Top" 
                   RenderTransformOrigin="-1.202,0.466" 
                   IsEnabled="False"/>
-        
+
         <!-- Button pesquisa -->
         <Button x:Name="btn_PesquisarConta"
                 Content="Pesquisar"

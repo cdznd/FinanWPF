@@ -58,8 +58,6 @@ namespace FinanWPF.Views
 
         }
 
-
-
         //CATEGORIAS
 
         //Cadastrar Categoria

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinanWPF.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20200925111957_SomeMigration")]
-    partial class SomeMigration
+    [Migration("20201005130246_finalMigrationfinal")]
+    partial class finalMigrationfinal
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,6 +53,9 @@ namespace FinanWPF.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Nome")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("dataNasc")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

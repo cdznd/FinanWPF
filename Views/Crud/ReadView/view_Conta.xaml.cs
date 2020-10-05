@@ -304,6 +304,8 @@ namespace FinanWPF.Views.Crud.ReadView
 
                 title_Criacao.Content = Convert.ToString(c.CreationDate);
 
+                ContaDataNasc.Content = c.dataNasc;
+
                 label2.Content = "Total gasto na conta de " + c.Nome + ": " + ResumeController.TotalDeGasto(c.Id) + "R$.";
 
             }

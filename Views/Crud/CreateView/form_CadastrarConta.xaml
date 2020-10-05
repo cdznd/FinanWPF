@@ -61,6 +61,17 @@
                  Opacity="1" 
                  BorderThickness="0,0,0,1"/>
 
+        <!-- CPF Input -->
+        <TextBox x:Name="input_DataNasc"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 Margin="140,150,0,0" 
+                 Width="120"
+                 Height="25"
+                 TextWrapping="Wrap"
+                 Opacity="1" 
+                 BorderThickness="0,0,0,1"/>
+
 
 
         <!-- Submit -->
@@ -81,6 +92,14 @@
                 Margin="75,195,0,0" 
                 Height="30"
                 Width="60" Click="btn_voltar_Click"/>
+        <Label x:Name="label_InputContaCPF_Copy" 
+            Content="Data de nascimento" 
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="10,150,0,0"
+            Width="Auto"
+            Height="25"
+            FontWeight="Bold"/>
 
     </Grid>
 

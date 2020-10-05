@@ -27,11 +27,13 @@ namespace FinanWPF.Models
 
         public string Cpf { get; set; }
 
+        public string dataNasc { get; set; }
+
         public DateTime CreationDate { get; set; }
 
         public virtual ICollection<Lancamento> Lancamentos { get; set; }
 
-        public override string ToString() => $" Id:{ this.Id } | Nome:{ this.Nome } | CPF:{ this.Cpf } | Data de criação:{ this.CreationDate } " ;
+        public override string ToString() => $" Id:{ this.Id } | Nome:{ this.Nome } | CPF:{ this.Cpf } | Data de nascimento: { this.dataNasc } |Data de criação:{ this.CreationDate } " ;
 
     }
 

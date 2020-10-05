@@ -41,6 +41,8 @@ namespace FinanWPF.Views.Crud.UpdateView
 
             input_ContaCPF.Clear();
 
+            input_ContaDataNasc.Clear();
+
             input_ContaNome.Focus();
 
         }
@@ -59,6 +61,7 @@ namespace FinanWPF.Views.Crud.UpdateView
 
                 input_ContaCPF.Text = c.Cpf;
 
+                input_ContaDataNasc.Text = c.dataNasc;
 
             }
             else
@@ -74,7 +77,7 @@ namespace FinanWPF.Views.Crud.UpdateView
         private void btn_AtualizarConta_Click(object sender, RoutedEventArgs e)
         {
 
-            if (!string.IsNullOrEmpty(drop_SelectConta.Text) && !string.IsNullOrEmpty(input_ContaCPF.Text) && !string.IsNullOrEmpty(input_ContaNome.Text))
+            if (!string.IsNullOrEmpty(drop_SelectConta.Text) && !string.IsNullOrEmpty(input_ContaCPF.Text) && !string.IsNullOrEmpty(input_ContaNome.Text) && !string.IsNullOrEmpty(input_ContaDataNasc.Text))
             {
 
                 int Id = (int)drop_SelectConta.SelectedValue;
@@ -84,6 +87,8 @@ namespace FinanWPF.Views.Crud.UpdateView
                 c.Nome = input_ContaNome.Text;
 
                 c.Cpf = input_ContaCPF.Text;
+
+                c.dataNasc = input_ContaDataNasc.Text;
 
                 ContaDAO.Update(c);
 
